@@ -29,3 +29,7 @@ header h1{
 .hd_nav a:hover::after {
   width: 100%;
 }
+
+.logo_first {
+  color: #ffd14b;
+}

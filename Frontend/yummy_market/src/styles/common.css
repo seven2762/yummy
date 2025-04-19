@@ -1,0 +1,1795 @@
+/* html {
+  font-size: 16px;
+} */
+
+:root {
+  --mt-unit: 1%;
+  --mb-unit: 1%;
+  --mr-unit: 1%;
+  --ml-unit: 1%;
+  --pt-unit: 1%;
+  --pb-unit: 1%;
+  --pr-unit: 1%;
+  --pl-unit: 1%;
+  --gap-unit: 2rem;
+}
+
+/* Margin Top 클래스 */
+[class*='mt-'] {
+  margin-top: calc(var(--mt-unit) * var(--mt-value));
+}
+
+/* Margin Bottom 클래스 */
+[class*='mb-'] {
+  margin-bottom: calc(var(--mb-unit) * var(--mb-value));
+}
+
+/* Margin Right 클래스 */
+[class*='mr-'] {
+  margin-right: calc(var(--mr-unit) * var(--mr-value));
+}
+
+/* Margin Left 클래스 */
+[class*='ml-'] {
+  margin-left: calc(var(--ml-unit) * var(--ml-value));
+}
+
+/* Padding Top 클래스 */
+[class*='pt-'] {
+  padding-top: calc(var(--pt-unit) * var(--pt-value));
+}
+
+/* Padding Bottom 클래스 */
+[class*='pb-'] {
+  padding-bottom: calc(var(--pb-unit) * var(--pb-value));
+}
+
+/* Padding Right 클래스 */
+[class*='pr-'] {
+  padding-right: calc(var(--pr-unit) * var(--pr-value));
+}
+
+/* Padding Left 클래스 */
+[class*='pl-'] {
+  padding-left: calc(var(--pl-unit) * var(--pl-value));
+}
+
+/* Gap 클래스 */
+[class*='gap-'] {
+  gap: calc(var(--gap-unit) * var(--gap-value));
+}
+
+/********* margin 속성 **********/
+.m-auto {
+  margin: auto;
+}
+.mt-1 {
+  --mt-value: 1;
+}
+
+.mb-1 {
+  --mb-value: 1;
+}
+
+.mr-1 {
+  --mr-value: 1;
+}
+
+.ml-1 {
+  --ml-value: 1;
+}
+
+.mt-2 {
+  --mt-value: 2;
+}
+
+.mb-2 {
+  --mb-value: 2;
+}
+
+.mr-2 {
+  --mr-value: 2;
+}
+
+.ml-2 {
+  --ml-value: 2;
+}
+
+.mt-3 {
+  --mt-value: 3;
+}
+
+.mb-3 {
+  --mb-value: 3;
+}
+
+.mr-3 {
+  --mr-value: 3;
+}
+
+.ml-3 {
+  --ml-value: 3;
+}
+
+.mt-4 {
+  --mt-value: 4;
+}
+
+.mb-4 {
+  --mb-value: 4;
+}
+
+.mr-4 {
+  --mr-value: 4;
+}
+
+.ml-4 {
+  --ml-value: 4;
+}
+
+.mt-5 {
+  --mt-value: 5;
+}
+
+.mb-5 {
+  --mb-value: 5;
+}
+
+.mr-5 {
+  --mr-value: 5;
+}
+
+.ml-5 {
+  --ml-value: 5;
+}
+
+.mt-6 {
+  --mt-value: 6;
+}
+
+.mb-6 {
+  --mb-value: 6;
+}
+
+.mr-6 {
+  --mr-value: 6;
+}
+
+.ml-6 {
+  --ml-value: 6;
+}
+
+.mt-6 {
+  --mt-value: 6;
+}
+
+.mb-6 {
+  --mb-value: 6;
+}
+
+.mr-6 {
+  --mr-value: 6;
+}
+
+.ml-6 {
+  --ml-value: 6;
+}
+
+.mt-7 {
+  --mt-value: 7;
+}
+
+.mb-7 {
+  --mb-value: 7;
+}
+
+.mr-7 {
+  --mr-value: 7;
+}
+
+.ml-7 {
+  --ml-value: 7;
+}
+
+.mt-8 {
+  --mt-value: 8;
+}
+
+.mb-8 {
+  --mb-value: 8;
+}
+
+.mr-8 {
+  --mr-value: 8;
+}
+
+.ml-8 {
+  --ml-value: 8;
+}
+
+.mt-9 {
+  --mt-value: 9;
+}
+
+.mb-9 {
+  --mb-value: 9;
+}
+
+.mr-9 {
+  --mr-value: 9;
+}
+
+.ml-9 {
+  --ml-value: 9;
+}
+
+.mt-10 {
+  --mt-value: 10;
+}
+
+.mb-10 {
+  --mb-value: 10;
+}
+
+.mr-10 {
+  --mr-value: 10;
+}
+
+.ml-10 {
+  --ml-value: 10;
+}
+
+.mt-13 {
+  --mt-value: 13;
+}
+
+.mb-13 {
+  --mb-value: 13;
+}
+
+.mr-13 {
+  --mr-value: 13;
+}
+
+.ml-13 {
+  --ml-value: 13;
+}
+
+.mt-15 {
+  --mt-value: 15;
+}
+
+.mb-15 {
+  --mb-value: 15;
+}
+
+.mr-15 {
+  --mr-value: 15;
+}
+
+.ml-15 {
+  --ml-value: 15;
+}
+
+.mt-17 {
+  --mt-value: 17;
+}
+
+.mb-17 {
+  --mb-value: 17;
+}
+
+.mr-17 {
+  --mr-value: 17;
+}
+
+.ml-17 {
+  --ml-value: 17;
+}
+
+.mt-18 {
+  --mt-value: 18;
+}
+
+.mb-18 {
+  --mb-value: 18;
+}
+
+.mr-18 {
+  --mr-value: 18;
+}
+
+.ml-18 {
+  --ml-value: 18;
+}
+
+.mt-20 {
+  --mt-value: 20;
+}
+
+.mb-20 {
+  --mb-value: 20;
+}
+
+.mr-20 {
+  --mr-value: 20;
+}
+
+.ml-20 {
+  --ml-value: 20;
+}
+
+.mt-25 {
+  --mt-value: 25;
+}
+
+.mb-25 {
+  --mb-value: 25;
+}
+
+.mr-25 {
+  --mr-value: 25;
+}
+
+.ml-25 {
+  --ml-value: 25;
+}
+
+.mt-30 {
+  --mt-value: 30;
+}
+
+.mb-30 {
+  --mb-value: 30;
+}
+
+.mr-30 {
+  --mr-value: 30;
+}
+
+.ml-30 {
+  --ml-value: 30;
+}
+
+.mt-33 {
+  --mt-value: 33;
+}
+
+.mb-33 {
+  --mb-value: 33;
+}
+
+.mr-33 {
+  --mr-value: 33;
+}
+
+.ml-33 {
+  --ml-value: 33;
+}
+
+/* 컨텐츠가 왼쪽에 붙게할 때*/
+.mr-auto {
+  margin-right: auto;
+}
+/* 컨텐츠가 가운데 있도록 */
+.margin-auto {
+  margin: auto;
+}
+
+/********* padding 속성 **********/
+.pt-1 {
+  --pt-value: 1;
+}
+
+.pb-1 {
+  --pb-value: 1;
+}
+
+.pr-1 {
+  --pr-value: 1;
+}
+
+.pl-1 {
+  --pl-value: 1;
+}
+
+.pt-2 {
+  --pt-value: 2;
+}
+
+.pb-2 {
+  --pb-value: 2;
+}
+
+.pr-2 {
+  --pr-value: 2;
+}
+
+.pl-2 {
+  --pl-value: 2;
+}
+
+.pt-3 {
+  --pt-value: 3;
+}
+
+.pb-3 {
+  --pb-value: 3;
+}
+
+.pr-3 {
+  --pr-value: 3;
+}
+
+.pl-3 {
+  --pl-value: 3;
+}
+
+.pt-4 {
+  --pt-value: 4;
+}
+
+.pb-4 {
+  --pb-value: 4;
+}
+
+.pr-4 {
+  --pr-value: 4;
+}
+
+.pl-4 {
+  --pl-value: 4;
+}
+
+.pt-5 {
+  --pt-value: 5;
+}
+
+.pb-5 {
+  --pb-value: 5;
+}
+
+.pr-5 {
+  --pr-value: 5;
+}
+
+.pl-5 {
+  --pl-value: 5;
+}
+
+.pt-6 {
+  --pt-value: 6;
+}
+
+.pb-6 {
+  --pb-value: 6;
+}
+
+.pr-6 {
+  --pr-value: 6;
+}
+
+.pl-6 {
+  --pl-value: 6;
+}
+
+.pt-7 {
+  --pt-value: 7;
+}
+
+.pb-7 {
+  --pb-value: 7;
+}
+
+.pr-7 {
+  --pr-value: 7;
+}
+
+.pl-7 {
+  --pl-value: 7;
+}
+
+.pt-8 {
+  --pt-value: 8;
+}
+
+.pb-8 {
+  --pb-value: 8;
+}
+
+.pr-8 {
+  --pr-value: 8;
+}
+
+.pl-8 {
+  --pl-value: 8;
+}
+
+.pt-10 {
+  --pt-value: 10;
+}
+
+.pb-10 {
+  --pb-value: 10;
+}
+
+.pr-10 {
+  --pr-value: 10;
+}
+
+.pl-10 {
+  --pl-value: 10;
+}
+
+.pt-13 {
+  --pt-value: 13;
+}
+
+.pb-13 {
+  --pb-value: 13;
+}
+
+.pr-13 {
+  --pr-value: 13;
+}
+
+.pl-13 {
+  --pl-value: 13;
+}
+
+.pt-15 {
+  --pt-value: 15;
+}
+
+.pb-15 {
+  --pb-value: 15;
+}
+
+.pr-15 {
+  --pr-value: 15;
+}
+
+.pl-15 {
+  --pl-value: 15;
+}
+
+.pt-20 {
+  --pt-value: 20;
+}
+
+.pb-20 {
+  --pb-value: 20;
+}
+
+.pr-20 {
+  --pr-value: 20;
+}
+
+.pl-20 {
+  --pl-value: 20;
+}
+
+.pt-25 {
+  --pt-value: 25;
+}
+
+.pb-25 {
+  --pb-value: 25;
+}
+
+.pr-25 {
+  --pr-value: 25;
+}
+
+.pl-25 {
+  --pl-value: 25;
+}
+
+.pt-30 {
+  --pt-value: 30;
+}
+
+.pb-30 {
+  --pb-value: 30;
+}
+
+.pr-30 {
+  --pr-value: 30;
+}
+
+.pl-30 {
+  --pl-value: 30;
+}
+
+.pt-33 {
+  --pt-value: 33;
+}
+
+.pb-33 {
+  --pb-value: 33;
+}
+
+.pr-33 {
+  --pr-value: 33;
+}
+
+.pl-33 {
+  --pl-value: 33;
+}
+
+/********* gap 속성 **********/
+.gap-3 {
+  --gap-value: 0.1875;
+}
+
+.gap-5 {
+  --gap-value: 0.3125;
+}
+
+.gap-7 {
+  --gap-value: 0.4375;
+}
+
+.gap-10 {
+  --gap-value: 0.625;
+}
+
+.gap-13 {
+  --gap-value: 0.725;
+}
+
+.gap-15 {
+  --gap-value: 0.9375;
+}
+.gap-17 {
+  --gap-value: 1.075;
+}
+.gap-20 {
+  --gap-value: 1.25;
+}
+
+.gap-30 {
+  --gap-value: 1.8;
+}
+
+.gap-40 {
+  --gap-value: 2.5;
+}
+
+.gap-50 {
+  --gap-value: 3.125;
+}
+
+.gap-55 {
+  --gap-value: 3.4375;
+}
+
+.gap-60 {
+  --gap-value: 3.75;
+}
+
+.gap-70 {
+  --gap-value: 4.375;
+}
+
+.gap-100 {
+  --gap-value: 6.25;
+}
+
+/********* 컬러 속성 **********/
+
+/*폰트 컬러*/
+/*font-color줄임 : fc*/
+.fc-white {
+  color: white !important
+}
+
+.fc-black {
+  color: #000;
+}
+
+.fc-black1 {
+  color: #111111;
+}
+
+.fc-black2 {
+  color: #222222;
+}
+
+.fc-black3 {
+  color: #333333;
+}
+
+/*배경컬러*/
+/*background 줄임 : fc*/
+.bg-white {
+  background-color: white;
+}
+.bg-black {
+  background-color: black;
+}
+.bg-black2 {
+  background-color: #222;
+}
+
+/********* height 속성 **********/
+
+.h-100vh {
+  height: 100vh;
+}
+.h-100 {
+  height: 100%;
+}
+.h-80 {
+  height: 80%;
+}
+.h-70 {
+  height: 70%;
+}
+.h-60 {
+  height: 60%;
+}
+.h-50 {
+  height: 50%;
+}
+.h-auto {
+  height: auto;
+}
+.h-fitcontent {
+  height: fit-content;
+}
+
+/********* width 속성  **********/
+.w-100vw {
+  width: 100vw;
+}
+.w-100 {
+  width: 100%;
+}
+.w-99 {
+  width: 99%;
+}
+.w-98 {
+  width: 98%;
+}
+.w-90 {
+  width: 90%;
+}
+.w-85{
+  width:85%;
+}
+.w-80 {
+  width: 80%;
+}
+.w-70 {
+  width: 70%;
+}
+.w-65 {
+  width: 65%;
+}
+.w-60 {
+  width: 60%;
+}
+.w-50 {
+  width: 50%;
+}
+.w-49 {
+  width: 49%;
+}
+.w-48 {
+  width: 48%;
+}
+.w-40 {
+  width: 40%;
+}
+.w-39{
+  width:39%;
+}
+
+.w-35 {
+  width: 35%;
+}
+.w-32 {
+  width: 32%;
+}
+.w-30 {
+  width: 30%;
+}
+.w-29 {
+  width: 29%;
+}
+.w-25 {
+  width: 25%;
+}
+.w-23 {
+  width: 23%;
+}
+.w-20 {
+  width: 20%;
+}
+.w-19 {
+  width: 19%;
+}
+.w-15 {
+  width: 15%;
+}
+.w-10 {
+  width: 10%;
+}
+.w-auto {
+  width: auto;
+}
+.w-fitcontent {
+  width: fit-content;
+}
+/********* position 속성  **********/
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+/********* flex 속성  **********/
+.flex {
+  display: flex;
+}
+
+/********* block 속성  **********/
+.block {
+  display: block;
+}
+
+/*컨텐츠 가로정렬*/
+.row-flex {
+  display: flex;
+  flex-direction: row;
+}
+/*가로정렬줄맞춤*/
+.row-flex-center{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+/*컨텐츠 세로정렬*/
+.col-flex {
+  display: flex;
+  flex-direction: column;
+}
+/*컨텐츠 가운데*/
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/*컨텐츠 가로정렬 시 자동 줄바꿈*/
+.flex-wrap {
+  flex-wrap: wrap;
+}
+/*컨텐츠 간격 정렬*/
+.between,
+.justfiy-betwwen {
+  justify-content: space-between;
+}
+/*컨텐츠 가운데*/
+.justify-center {
+  justify-content: center;
+}
+/*컨텐츠 가운데*/
+.align-center {
+  align-items: center;
+}
+/*컨텐츠 끝에*/
+.align-end {
+  align-items: flex-end;
+}
+/*컨텐츠 끝에*/
+.justify-end {
+  justify-content: flex-end;
+}
+
+/********* 텍스트 속성  **********/
+/*텍스트 줄바꿈방지*/
+.ws-nowrap {
+  white-space: nowrap;
+}
+
+/*텍스트가운데정렬*/
+.txt-center {
+  text-align: center;
+}
+
+/*텍스트가로정렬*/
+.txt-right {
+  text-align: right;
+}
+
+/*텍스트왼쪽정렬*/
+.txt-left {
+  text-align: left;
+}
+
+/*텍스트 밑줄*/
+.txt-underline {
+  text-decoration: underline;
+}
+/*텍스트 취소선 줄*/
+.txt-line-through {
+  text-decoration: line-through;
+}
+
+/*텍스트 ... 줄임표*/
+.txt-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+/* 2줄제한 */
+.txt-ellipsis2 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-word;
+  max-height: 2.8em;
+  line-height: 1.4;
+}
+
+.txt-too-long {
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+
+/********* 이미지 속성  **********/
+/*이미지 삽입 시 비율유지 및 깨지지 않도록*/
+.object-fit-cover {
+  object-fit: cover;
+}
+/*이미지 삽입 시 이미지크기만큼 삽입 */
+.object-fit-contain {
+  object-fit: contain;
+}
+
+/********* display 속성  **********/
+/*pc에서 보이지않음*/
+.pc-none {
+  display: none;
+}
+/*모바일에서 보이지 않음 -> pc에서는 보임*/
+.m-none {
+  display: flex;
+}
+
+/********* cursor 속성  **********/
+/*커서포인터*/
+.pointer {
+  cursor: pointer;
+}
+
+/********* border 속성 **********/
+
+.bd-none {
+  border: none;
+}
+.bd-d7 {
+  border: 1px solid #d7d7d7;
+}
+.bd-top-d7 {
+  border-top: 1px solid #d7d7d7;
+}
+.bd-bottom-d7 {
+  border-bottom: 1px solid #d7d7d7;
+}
+.bd-right-d7 {
+  border-right: 1px solid #d7d7d7;
+}
+.bd-left-d7 {
+  border-left: 1px solid #d7d7d7;
+}
+.bd-radius-5 {
+  border-radius: 5px;
+}
+.bd-radius-10 {
+  border-radius: 10px;
+}
+.bd-radius-15 {
+  border-radius: 15px;
+}
+.bd-radius-20 {
+  border-radius: 20px;
+}
+
+.bd-radius-50,
+.bd-circle {
+  border-radius: 50%;
+}
+
+/********* overflow 속성 **********/
+.of-hidden {
+  overflow: hidden;
+}
+
+/********* line-height 속성 **********/
+.lh-25 {
+  line-height: 1.45em;
+}
+.lh-30 {
+  line-height: 1.5em;
+}
+.lh-35 {
+  line-height: 1.55em;
+}
+.lh-40 {
+  line-height: 1.6em;
+}
+.lh-50 {
+  line-height: 1.65em;
+}
+/* 그림자효과 */
+.box-shadow {
+  box-shadow: 0 2px 30px 10px rgba(0, 0, 0, 0.068);
+}
+.box-shadow-bottom{
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* mobile */
+@media screen and (max-width: 767px) {
+  .m-w-100 {
+    width: 100% !important;
+  }
+  .m-w-90 {
+    width: 90%;
+  }
+  .m-w-80 {
+    width: 80%;
+  }
+  .m-w-70 {
+    width: 70%;
+  }
+  .m-w-60 {
+    width: 60%;
+  }
+  .m-w-50 {
+    width: 48%;
+  }
+  .m-w-40 {
+    width: 40%;
+  }
+  .m-w-30 {
+    width: 30%;
+  }
+  .m-w-20 {
+    width: 20%;
+  }
+  .m-w-10 {
+    width: 10%;
+  }
+
+  .pc-none {
+    display: block;
+  }
+
+  .m-none {
+    display: none;
+  }
+
+  .m-bg-white {
+    background-color: white;
+  }
+
+  .m-f-black {
+    color: black;
+  }
+
+  .m-f-white {
+    color: white;
+  }
+
+  .m-justify-start {
+    justify-content: flex-start;
+  }
+
+  .m-ws-wrap {
+    white-space: wrap;
+  }
+
+  .m-none {
+    display: none;
+  }
+
+  .m-col-flex {
+    flex-direction: column;
+  }
+
+  .m-row-flex {
+    flex-direction: row;
+  }
+
+  .m-block {
+    display: block;
+  }
+
+  .m-flex-wrap {
+    flex-wrap: wrap;
+  }
+
+  .m-align-start {
+    align-items: flex-start;
+  }
+
+  .m-between {
+    justify-content: space-between;
+  }
+
+  .m-txt-center {
+    text-align: center;
+  }
+
+  .m-h-100 {
+    height: 100%;
+  }
+
+  .m-mb-10 {
+    margin-bottom: unset;
+    margin-bottom: 10px;
+  }
+
+  .m-mb-20 {
+    margin-bottom: unset;
+    margin-bottom: 20px;
+  }
+  .m-mb-30 {
+    margin-bottom: 30px;
+  }
+  .m-mb-40 {
+    margin-bottom: 40px;
+  }
+  .m-mb-50 {
+    margin-bottom: 50px;
+  }
+
+  .m-mt-20 {
+    margin-top: 20px;
+  }
+
+  .m-mt-50 {
+    margin-top: 55px;
+  }
+
+  .m-mt-40 {
+    margin-top: 40px;
+  }
+
+  .m-mt-20 {
+    margin-top: 20px;
+  }
+
+  .m-mt-100 {
+    margin-top: 100px;
+  }
+
+  .m-pl-10 {
+    padding-left: 10px;
+  }
+  .m-pl-150 {
+    padding-left: 150px;
+  }
+
+  .m-justify-start {
+    justify-content: flex-start;
+  }
+
+  .m-gap-10 {
+    gap: 10px;
+  }
+  .m-gap-20 {
+    gap: 20px;
+  }
+  .m-txt-left {
+    text-align: left;
+  }
+
+  .lh-25 {
+    line-height: 20px;
+  }
+  .lh-30 {
+    line-height: 25px;
+  }
+  .lh-35 {
+    line-height: 30px;
+  }
+  .lh-40 {
+    line-height: 30px;
+  }
+  .lh-50 {
+    line-height: 30px;
+  }
+  .bd-radius-5 {
+    border-radius: 4px;
+  }
+  .bd-radius-10 {
+    border-radius: 7px;
+  }
+  .bd-radius-15 {
+    border-radius: 10px;
+  }
+  .bd-radius-20 {
+    border-radius: 15px;
+  }
+
+  /*모바일*/
+  /* Margin 값 정의 */
+  .mt-1 {
+    --mt-value: 3;
+  }
+  .mb-1 {
+    --mb-value: 3;
+  }
+  .mr-1 {
+    --mr-value: 3;
+  }
+  .ml-1 {
+    --ml-value: 3;
+  }
+
+  .mt-2 {
+    --mt-value: 4;
+  }
+  .mb-2 {
+    --mb-value: 4;
+  }
+  .mr-2 {
+    --mr-value: 4;
+  }
+  .ml-2 {
+    --ml-value: 4;
+  }
+
+  .mt-3 {
+    --mt-value: 5;
+  }
+  .mb-3 {
+    --mb-value: 5;
+  }
+  .mr-3 {
+    --mr-value: 5;
+  }
+  .ml-3 {
+    --ml-value: 5;
+  }
+
+  .mt-4 {
+    --mt-value: 6;
+  }
+  .mb-4 {
+    --mb-value: 6;
+  }
+  .mr-4 {
+    --mr-value: 6;
+  }
+  .ml-4 {
+    --ml-value: 6;
+  }
+
+  .mt-5 {
+    --mt-value: 8;
+  }
+  .mb-5 {
+    --mb-value: 8;
+  }
+  .mr-5 {
+    --mr-value: 8;
+  }
+  .ml-5 {
+    --ml-value: 8;
+  }
+
+  .mt-6 {
+    --mt-value: 9;
+  }
+  .mb-6 {
+    --mb-value: 9;
+  }
+  .mr-6 {
+    --mr-value: 9;
+  }
+  .ml-6 {
+    --ml-value: 9;
+  }
+
+  .mt-7 {
+    --mt-value: 10;
+  }
+  .mb-7 {
+    --mb-value: 10;
+  }
+  .mr-7 {
+    --mr-value: 10;
+  }
+  .ml-7 {
+    --ml-value: 10;
+  }
+
+  .mt-8 {
+    --mt-value: 11;
+  }
+  .mb-8 {
+    --mb-value: 11;
+  }
+  .mr-8 {
+    --mr-value: 11;
+  }
+  .ml-8 {
+    --ml-value: 11;
+  }
+
+  .mt-9 {
+    --mt-value: 12;
+  }
+  .mb-9 {
+    --mb-value: 12;
+  }
+  .mr-9 {
+    --mr-value: 12;
+  }
+  .ml-9 {
+    --ml-value: 12;
+  }
+
+  .mt-10 {
+    --mt-value: 13;
+  }
+  .mb-10 {
+    --mb-value: 13;
+  }
+  .mr-10 {
+    --mr-value: 13;
+  }
+  .ml-10 {
+    --ml-value: 13;
+  }
+
+  .mt-12 {
+    --mt-value: 15;
+  }
+  .mb-12 {
+    --mb-value: 15;
+  }
+  .mr-12 {
+    --mr-value: 15;
+  }
+  .ml-12 {
+    --ml-value: 15;
+  }
+
+  .mt-13 {
+    --mt-value: 16;
+  }
+  .mb-13 {
+    --mb-value: 16;
+  }
+  .mr-13 {
+    --mr-value: 16;
+  }
+  .ml-13 {
+    --ml-value: 16;
+  }
+
+  .mt-15 {
+    --mt-value: 18;
+  }
+  .mb-15 {
+    --mb-value: 18;
+  }
+  .mr-15 {
+    --mr-value: 18;
+  }
+  .ml-15 {
+    --ml-value: 18;
+  }
+
+  .mt-17 {
+    --mt-value: 20;
+  }
+  .mb-17 {
+    --mb-value: 20;
+  }
+  .mr-17 {
+    --mr-value: 20;
+  }
+  .ml-17 {
+    --ml-value: 20;
+  }
+
+  .mt-18 {
+    --mt-value: 21;
+  }
+  .mb-18 {
+    --mb-value: 21;
+  }
+  .mr-18 {
+    --mr-value: 21;
+  }
+  .ml-18 {
+    --ml-value: 21;
+  }
+
+  .mt-20 {
+    --mt-value: 23;
+  }
+  .mb-20 {
+    --mb-value: 23;
+  }
+  .mr-20 {
+    --mr-value: 23;
+  }
+  .ml-20 {
+    --ml-value: 23;
+  }
+
+  .mt-25 {
+    --mt-value: 28;
+  }
+  .mb-25 {
+    --mb-value: 28;
+  }
+  .mr-25 {
+    --mr-value: 28;
+  }
+  .ml-25 {
+    --ml-value: 28;
+  }
+
+  .mt-30 {
+    --mt-value: 33;
+  }
+  .mb-30 {
+    --mb-value: 33;
+  }
+  .mr-30 {
+    --mr-value: 33;
+  }
+  .ml-30 {
+    --ml-value: 33;
+  }
+
+  .mt-33 {
+    --mt-value: 36;
+  }
+  .mb-33 {
+    --mb-value: 36;
+  }
+  .mr-33 {
+    --mr-value: 36;
+  }
+  .ml-33 {
+    --ml-value: 36;
+  }
+
+  /* Padding 값 */
+  .pt-1 {
+    --pt-value: 3;
+  }
+  .pb-1 {
+    --pb-value: 3;
+  }
+  .pr-1 {
+    --pr-value: 3;
+  }
+  .pl-1 {
+    --pl-value: 3;
+  }
+
+  .pt-2 {
+    --pt-value: 4;
+  }
+  .pb-2 {
+    --pb-value: 4;
+  }
+  .pr-2 {
+    --pr-value: 4;
+  }
+  .pl-2 {
+    --pl-value: 4;
+  }
+
+  .pt-3 {
+    --pt-value: 5;
+  }
+  .pb-3 {
+    --pb-value: 5;
+  }
+  .pr-3 {
+    --pr-value: 5;
+  }
+  .pl-3 {
+    --pl-value: 5;
+  }
+
+  .pt-4 {
+    --pt-value: 6;
+  }
+  .pb-4 {
+    --pb-value: 6;
+  }
+  .pr-4 {
+    --pr-value: 6;
+  }
+  .pl-4 {
+    --pl-value: 6;
+  }
+
+  .pt-5 {
+    --pt-value: 8;
+  }
+  .pb-5 {
+    --pb-value: 8;
+  }
+  .pr-5 {
+    --pr-value: 8;
+  }
+  .pl-5 {
+    --pl-value: 8;
+  }
+
+  .pt-6 {
+    --pt-value: 9;
+  }
+  .pb-6 {
+    --pb-value: 9;
+  }
+  .pr-6 {
+    --pr-value: 9;
+  }
+  .pl-6 {
+    --pl-value: 9;
+  }
+
+  .pt-10 {
+    --pt-value: 13;
+  }
+  .pb-10 {
+    --pb-value: 13;
+  }
+  .pr-10 {
+    --pr-value: 13;
+  }
+  .pl-10 {
+    --pl-value: 13;
+  }
+
+  .pt-13 {
+    --pt-value: 16;
+  }
+  .pb-13 {
+    --pb-value: 16;
+  }
+  .pr-13 {
+    --pr-value: 16;
+  }
+  .pl-13 {
+    --pl-value: 16;
+  }
+
+  .pt-15 {
+    --pt-value: 18;
+  }
+  .pb-15 {
+    --pb-value: 18;
+  }
+  .pr-15 {
+    --pr-value: 18;
+  }
+  .pl-15 {
+    --pl-value: 18;
+  }
+
+  .pt-20 {
+    --pt-value: 23;
+  }
+  .pb-20 {
+    --pb-value: 23;
+  }
+  .pr-20 {
+    --pr-value: 23;
+  }
+  .pl-20 {
+    --pl-value: 23;
+  }
+
+  .pt-25 {
+    --pt-value: 28;
+  }
+  .pb-25 {
+    --pb-value: 28;
+  }
+  .pr-25 {
+    --pr-value: 28;
+  }
+  .pl-25 {
+    --pl-value: 28;
+  }
+
+  .pt-30 {
+    --pt-value: 33;
+  }
+  .pb-30 {
+    --pb-value: 33;
+  }
+  .pr-30 {
+    --pr-value: 33;
+  }
+  .pl-30 {
+    --pl-value: 33;
+  }
+
+  .pt-33 {
+    --pt-value: 36;
+  }
+  .pb-33 {
+    --pb-value: 36;
+  }
+  .pr-33 {
+    --pr-value: 36;
+  }
+  .pl-33 {
+    --pl-value: 36;
+  }
+  /********* gap 속성 **********/
+  .gap-3 {
+    --gap-value: 1.1875;
+  }
+
+  .gap-5 {
+    --gap-value: 1.3125;
+  }
+
+  .gap-7 {
+    --gap-value: 2.4375;
+  }
+
+  .gap-10 {
+    --gap-value: 2.625;
+  }
+
+  .gap-13 {
+    --gap-value: 3.725;
+  }
+
+  .gap-15 {
+    --gap-value: 3.9375;
+  }
+  .gap-17 {
+    --gap-value: 4.075;
+  }
+  .gap-20 {
+    --gap-value: 5.25;
+  }
+
+  .gap-30 {
+    --gap-value: 5.8;
+  }
+
+  .gap-40 {
+    --gap-value: 6.5;
+  }
+
+  .gap-50 {
+    --gap-value: 7.125;
+  }
+
+  .gap-55 {
+    --gap-value: 8.4375;
+  }
+
+  .gap-60 {
+    --gap-value: 9.75;
+  }
+
+  .gap-70 {
+    --gap-value: 10.375;
+  }
+
+  .gap-100 {
+    --gap-value: 11.25;
+  }
+}
+
+/* tablet */
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .pc-none {
+    display: block;
+  }
+
+  .t-none {
+    display: none;
+  }
+
+  .t-h-auto {
+    height: auto;
+  }
+
+  .t-col-flex {
+    flex-direction: column;
+  }
+
+  .t-row-flex {
+    flex-direction: row;
+  }
+  .t-w-100 {
+    width: 100%;
+  }
+  .bd-radius-5 {
+    border-radius: 4px;
+  }
+  .bd-radius-10 {
+    border-radius: 7px;
+  }
+  .bd-radius-15 {
+    border-radius: 10px;
+  }
+  .bd-radius-20 {
+    border-radius: 10px;
+  }
+
+  .gap-3 {
+    --gap-value: 0.1;
+  } /* 원래 0.1875 */
+  .gap-5 {
+    --gap-value: 0.2;
+  } /* 원래 0.3125 */
+  .gap-7 {
+    --gap-value: 0.3;
+  } /* 원래 0.4375 */
+  .gap-10 {
+    --gap-value: 0.5;
+  } /* 원래 0.625 */
+  .gap-15 {
+    --gap-value: 0.6;
+  } /* 원래 0.9375 */
+  .gap-20 {
+    --gap-value: 0.7;
+  } /* 원래 1.25 */
+  .gap-30 {
+    --gap-value: 0.9;
+  } /* 원래 1.8 */
+  .gap-35 {
+    --gap-value: 1;
+  } /* 원래 2.0 */
+  .gap-40 {
+    --gap-value: 1.5;
+  } /* 원래 2.5 */
+  .gap-50 {
+    --gap-value: 2.5;
+  } /* 원래 3.125 */
+  .gap-55 {
+    --gap-value: 3;
+  } /* 원래 3.4375 */
+  .gap-60 {
+    --gap-value: 3.5;
+  } /* 원래 3.75 */
+  .gap-70 {
+    --gap-value: 4.5;
+  } /* 원래 4.375 */
+  .gap-100 {
+    --gap-value: 5;
+  } /* 원래 6.25 */
+}
+
+@media screen and (min-width: 1025px) and (max-width: 1440px) {
+  .bd-radius-5 {
+    border-radius: 4px;
+  }
+  .bd-radius-10 {
+    border-radius: 7px;
+  }
+  .bd-radius-15 {
+    border-radius: 10px;
+  }
+  .bd-radius-20 {
+    border-radius: 10px;
+  }
+}

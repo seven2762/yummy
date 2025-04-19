@@ -1,0 +1,137 @@
+
+/* 초기값 */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  color: #333;
+  background-color: #fff;
+  font-family: 'Pretendard', sans-serif;
+}
+
+input::placeholder{
+
+  font-family: 'Pretendard', sans-serif;
+}
+input[type='button'], a {
+  color: unset;
+  text-decoration: none;
+}
+
+#wrap {
+  width: 100%;
+  overflow: hidden;
+}
+
+.center {
+  width: 75%;
+  margin: 0 auto;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+select {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border: 0;
+  outline: 0;
+  padding-left: 10px;
+  box-sizing: border-box;
+  appearance: none;
+  /*background: url(../images/select_arrow.png) no-repeat right 15px center;*/
+  background-color: transparent;
+  cursor: pointer;
+  color: #333;
+}
+
+input {
+  outline: 0;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+
+input::placeholder {
+  font-size: 90%;
+}
+
+input:-ms-input-placeholder {
+  font-size: 90%;
+}
+
+textarea {
+  outline: 0;
+  resize: none;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+input[type='button'] {
+  cursor: pointer;
+  /*padding: 0;*/
+}
+
+button {
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+}
+
+::-webkit-calendar-picker-indicator {
+  margin-left: 0px;
+  font-size: 14px;
+}
+
+/*!* mobile *!*/
+@media screen and (max-width: 767px) {
+  .center {
+    width: 95%;
+  }
+
+}
+
+/*!* tablet *!*/
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+  .center {
+    width: 95%;
+  }
+
+  /*  input[type='text'],*/
+  /*  input[type='password'],*/
+  /*  input[type='button'],*/
+  /*  input[type='date'],*/
+  /*  textarea,*/
+  /*  button {*/
+  /*    appearance: none;*/
+  /*    -moz-appearance: none;*/
+  /*    -webkit-appearance: none;*/
+  /*    border-radius: 0;*/
+  /*    -webkit-border-radius: 0;*/
+  /*    -moz-border-radius: 0;*/
+  /*  }*/
+}
+
+/*!* pc *!*/
+/*@media screen and (min-width: 1025px) and (max-width: 1400px) {*/
+/*  .center {*/
+/*    width: 1000px;*/
+/*  }*/
+/*}*/

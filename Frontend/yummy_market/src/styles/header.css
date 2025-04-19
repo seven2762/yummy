@@ -1,0 +1,31 @@
+header{
+  padding: 20px 0
+}
+header h1{
+  line-height: 1;
+}
+
+.hd_nav a {
+  position: relative;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.hd_nav a:hover{
+  font-weight: bold;
+}
+
+.hd_nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  background-color: currentColor;
+  transition: width 0.3s ease;
+}
+
+.hd_nav a:hover::after {
+  width: 100%;
+}

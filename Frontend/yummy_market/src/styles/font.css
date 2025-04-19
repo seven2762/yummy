@@ -1,0 +1,1259 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.montserrat-medium {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.montserrat-bold {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.montserrat-extra-bold {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GmarketSansMedium';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.gmarket-medium {
+  font-family: 'GmarketSansMedium';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-weight: 500
+}
+
+.gmarket-bold {
+  font-family: 'GmarketSansMedium';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-weight: 700
+}
+
+.gmarket-extra-bold {
+  font-family: 'GmarketSansMedium';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-weight: 800
+}
+
+
+@font-face {
+  font-family: 'Pretendard-Thin';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Thin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard-ExtraLight';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraLight.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard-Light';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard-Medium';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard-SemiBold';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard-Bold';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard-ExtraBold';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraBold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Pretendard-Black';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
+
+.prt-thin {
+  font-family: 'Pretendard-Thin';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Thin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+}
+
+.prt-extra-light {
+  font-family: 'Pretendard-ExtraLight';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraLight.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+}
+
+.prt-light {
+  font-family: 'Pretendard-Light';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+.prt-regular {
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+.prt-medium {
+  font-family: 'Pretendard-Medium';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+.prt-semi-bold {
+  font-family: 'Pretendard-SemiBold';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+.prt-bold {
+  font-family: 'Pretendard-Bold';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+.prt-extra-bold {
+  font-family: 'Pretendard-ExtraBold';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraBold.woff') format('woff');
+  font-weight: 800;
+  font-style: normal;
+}
+
+.prt-black {
+  font-family: 'Pretendard-Black';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
+
+/*@font-face {*/
+/*  font-family: 'Pretendard Variable';*/
+/*  src: url('https://fastly.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');*/
+/*  font-style: normal;*/
+/*}*/
+/*@font-face {*/
+/*  font-family: 'Pretendard Variable';*/
+/*  src: url('fonts/PretendardVariable.ttf') format('truetype');*/
+/*  font-style: normal;*/
+/*}*/
+
+
+/*@font-face {*/
+/*  font-family: 'Pretendard-Thin';*/
+/*  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Thin.woff') format('woff');*/
+/*  font-weight: 100;*/
+/*  font-style: normal;*/
+/*}*/
+
+/*@font-face {*/
+/*  font-family: 'Pretendard-ExtraLight';*/
+/*  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraLight.woff') format('woff');*/
+/*  font-weight: 200;*/
+/*  font-style: normal;*/
+/*}*/
+
+/*@font-face {*/
+/*  font-family: 'Pretendard-Light';*/
+/*  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Light.woff') format('woff');*/
+/*  font-weight: 300;*/
+/*  font-style: normal;*/
+/*}*/
+
+/*@font-face {*/
+/*  font-family: 'Pretendard-Regular';*/
+/*  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');*/
+/*  font-weight: 400;*/
+/*  font-style: normal;*/
+/*}*/
+
+/*@font-face {*/
+/*  font-family: 'Pretendard-Medium';*/
+/*  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff') format('woff');*/
+/*  font-weight: 500;*/
+/*  font-style: normal;*/
+/*}*/
+
+/*@font-face {*/
+/*  font-family: 'Pretendard-SemiBold';*/
+/*  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-SemiBold.woff') format('woff');*/
+/*  font-weight: 600;*/
+/*  font-style: normal;*/
+/*}*/
+
+/*@font-face {*/
+/*  font-family: 'Pretendard-Bold';*/
+/*  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');*/
+/*  font-weight: 700;*/
+/*  font-style: normal;*/
+/*}*/
+
+/*@font-face {*/
+/*  font-family: 'Pretendard-ExtraBold';*/
+/*  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraBold.woff') format('woff');*/
+/*  font-weight: 800;*/
+/*  font-style: normal;*/
+/*}*/
+
+/*@font-face {*/
+/*  font-family: 'Pretendard-Black';*/
+/*  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Black.woff') format('woff');*/
+/*  font-weight: 900;*/
+/*  font-style: normal;*/
+/*}*/
+
+@font-face {
+  font-family: 'SUIT Variable';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Variable.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 프리텐다드체 */
+.prt {
+  font-family: 'Pretendard Variable', sans-serif;
+}
+
+/*.prt-thin {*/
+/*  font-family: 'Pretendard', sans-serif;*/
+/*  font-weight: 100;*/
+/*}*/
+
+/*.prt-extra-light {*/
+/*  font-family: 'Pretendard', sans-serif;*/
+/*  font-weight: 200;*/
+/*}*/
+
+/*.prt-light {*/
+/*  font-family: 'Pretendard', sans-serif;*/
+/*  font-weight: 300;*/
+/*}*/
+
+/*.prt-regular {*/
+/*  font-family: 'Pretendard', sans-serif;*/
+/*  font-weight: 400;*/
+/*}*/
+
+/*.prt-medium {*/
+/*  font-family: 'Pretendard', sans-serif;*/
+/*  font-weight: 500;*/
+/*}*/
+
+/*.prt-semi-bold {*/
+/*  font-family: 'Pretendard', sans-serif;*/
+/*  font-weight: 600;*/
+/*}*/
+
+/*.prt-bold {*/
+/*  font-family: 'Pretendard', sans-serif;*/
+/*  font-weight: 700;*/
+/*}*/
+
+/*.prt-extra-bold {*/
+/*  font-family: 'Pretendard', sans-serif;*/
+/*  font-weight: 800;*/
+/*}*/
+
+/*.prt-black {*/
+/*  font-family: 'Pretendard-Black', sans-serif;*/
+/*  font-weight: 900;*/
+/*}*/
+
+/*.prt-thin{*/
+/*  font-family: 'Pretendard-Thin';*/
+/*  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Thin.woff') format('woff');*/
+/*  font-weight: 100;*/
+/*  font-style: normal;*/
+/*}*/
+/*.prt-extra-light{*/
+/*  font-family: 'Pretendard-ExtraLight';*/
+/*  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraLight.woff') format('woff');*/
+/*  font-weight: 200;*/
+/*  font-style: normal;*/
+/*}*/
+/*.prt-light{*/
+/*  font-family: 'Pretendard-Light';*/
+/*  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Light.woff') format('woff');*/
+/*  font-weight: 300;*/
+/*  font-style: normal;*/
+/*}*/
+/*.prt-regular{*/
+/*  font-family: 'Pretendard-Regular';*/
+/*  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');*/
+/*  font-weight: 400;*/
+/*  font-style: normal;*/
+/*}*/
+/*.prt-medium{*/
+/*  font-family: 'Pretendard-Medium';*/
+/*  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Medium.woff') format('woff');*/
+/*  font-weight: 500;*/
+/*  font-style: normal;*/
+/*}*/
+/*.prt-semi-bold{*/
+/*  font-family: 'Pretendard-SemiBold';*/
+/*  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-SemiBold.woff') format('woff');*/
+/*  font-weight: 600;*/
+/*  font-style: normal;*/
+/*}*/
+/*.prt-bold{*/
+/*  font-family: 'Pretendard-Bold';*/
+/*  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Bold.woff') format('woff');*/
+/*  font-weight: 700;*/
+/*  font-style: normal;*/
+/*}*/
+/*.prt-extra-bold{*/
+/*  font-family: 'Pretendard-ExtraBold';*/
+/*  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-ExtraBold.woff') format('woff');*/
+/*  font-weight: 800;*/
+/*  font-style: normal;*/
+/*}*/
+/*.prt-black{*/
+/*  font-family: 'Pretendard-Black';*/
+/*  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Black.woff') format('woff');*/
+/*  font-weight: 900;*/
+/*  font-style: normal;*/
+/*}*/
+
+
+/*@font-face {*/
+/*  font-family: 'Adobe Garamond Pro Regular';*/
+/*  font-style: normal;*/
+/*  font-weight: normal;*/
+/*  src: url('AGaramondPro-Regular.woff') format('woff');*/
+/*}*/
+
+/*@font-face {*/
+/*  font-family: 'Adobe Garamond Pro Italic';*/
+/*  font-style: normal;*/
+/*  font-weight: normal;*/
+/*  src: url('AGaramondPro-Italic.woff') format('woff');*/
+/*}*/
+
+/*@font-face {*/
+/*  font-family: 'Adobe Garamond Pro Bold';*/
+/*  font-style: normal;*/
+/*  font-weight: normal;*/
+/*  src: url('AGaramondPro-Bold.woff') format('woff');*/
+/*}*/
+
+/*@font-face {*/
+/*  font-family: 'Adobe Garamond Pro Bold Italic';*/
+/*  font-style: normal;*/
+/*  font-weight: normal;*/
+/*  src: url('AGaramondPro-BoldItalic.woff') format('woff');*/
+/*}*/
+
+/*.ag-regular {*/
+/*  font-family: 'Adobe Garamond Pro Regular', sans-serif;*/
+/*}*/
+
+/*.ag-italic {*/
+/*  font-family: 'Adobe Garamond Pro Italic', sans-serif;*/
+/*}*/
+
+/*.ag-bold {*/
+/*  font-family: 'Adobe Garamond Pro Bold', sans-serif;*/
+/*}*/
+
+/*.ag-bold-italic {*/
+/*  font-family: 'Adobe Garamond Pro Bold Italic', sans-serif;*/
+/*}*/
+
+/*!* NotoSerifKR *!*/
+/*@font-face {*/
+/*  font-family: 'NotoSerifKR-Black';*/
+/*  font-style: normal;*/
+/*  font-weight: normal;*/
+/*  src: url('NotoSerifKR-Black.ttf') format('truetype');*/
+/*}*/
+
+/*@font-face {*/
+/*  font-family: 'NotoSerifKR-Bold';*/
+/*  font-style: normal;*/
+/*  font-weight: normal;*/
+/*  src: url('NotoSerifKR-Bold.ttf') format('truetype');*/
+/*}*/
+
+/*@font-face {*/
+/*  font-family: 'NotoSerifKR-ExtraBold';*/
+/*  font-style: normal;*/
+/*  font-weight: normal;*/
+/*  src: url('NotoSerifKR-ExtraBold.ttf') format('truetype');*/
+/*}*/
+
+/*@font-face {*/
+/*  font-family: 'NotoSerifKR-ExtraLight';*/
+/*  font-style: normal;*/
+/*  font-weight: normal;*/
+/*  src: url('NotoSerifKR-ExtraLight.ttf') format('truetype');*/
+/*}*/
+
+/*@font-face {*/
+/*  font-family: 'NotoSerifKR-Light';*/
+/*  font-style: normal;*/
+/*  font-weight: normal;*/
+/*  src: url('NotoSerifKR-Light.ttf') format('truetype');*/
+/*}*/
+
+/*@font-face {*/
+/*  font-family: 'NotoSerifKR-Medium';*/
+/*  font-style: normal;*/
+/*  font-weight: normal;*/
+/*  src: url('NotoSerifKR-Medium.ttf') format('truetype');*/
+/*}*/
+
+/*@font-face {*/
+/*  font-family: 'NotoSerifKR-Regular';*/
+/*  font-style: normal;*/
+/*  font-weight: normal;*/
+/*  src: url('NotoSerifKR-Regular.ttf') format('truetype');*/
+/*}*/
+
+/*@font-face {*/
+/*  font-family: 'NotoSerifKR-SemiBold';*/
+/*  font-style: normal;*/
+/*  font-weight: normal;*/
+/*  src: url('NotoSerifKR-SemiBold.ttf') format('truetype');*/
+/*}*/
+
+/*.notoKR-black {*/
+/*  font-family: 'NotoSerifKR-Black', sans-serif;*/
+/*}*/
+
+/*.notoKR-bold {*/
+/*  font-family: 'NotoSerifKR-Bold', sans-serif;*/
+/*}*/
+
+
+/*.notoKR-extra-bold {*/
+/*  font-family: 'NotoSerifKR-ExtraBold', sans-serif;*/
+/*}*/
+
+
+/*.notoKR-extra-light {*/
+/*  font-family: 'NotoSerifKR-ExtraLight', sans-serif;*/
+/*}*/
+
+
+/*.notoKR-light {*/
+/*  font-family: 'NotoSerifKR-Light', sans-serif;*/
+/*}*/
+
+
+/*.notoKR-medium {*/
+/*  font-family: 'NotoSerifKR-Medium', sans-serif;*/
+/*}*/
+
+
+/*.notoKR-regular {*/
+/*  font-family: 'NotoSerifKR-Regular', sans-serif;*/
+/*}*/
+
+/*.notoKR-semi-bold {*/
+/*  font-family: 'NotoSerifKR-SemiBold', sans-serif;*/
+/*}*/
+
+
+/* 스위트체 */
+.suit {
+  font-family: 'SUIT Variable', sans-serif;
+}
+
+.su-thin {
+  font-family: 'SUIT-Thin', sans-serif;
+  font-weight: 100;
+}
+
+.su-extra-light {
+  font-family: 'SUIT-Extra-Light', sans-serif;
+  font-weight: 200;
+}
+
+.su-light {
+  font-family: 'SUIT-Light', sans-serif;
+  font-weight: 300;
+}
+
+.su-regular {
+  font-family: 'SUIT-Regular', sans-serif;
+  font-weight: 400;
+}
+
+.su-medium {
+  font-family: 'SUIT', sans-serif;
+  font-weight: 500;
+}
+
+.su-semi-bold {
+  font-family: 'SUIT-Semi-Bold', sans-serif;
+  font-weight: 600;
+}
+
+.su-bold {
+  font-family: 'SUIT-Bold', sans-serif;
+  font-weight: 700;
+}
+
+.su-extra-bold {
+  font-family: 'SUIT-Extra-Bold', sans-serif;
+  font-weight: 800;
+}
+
+.su-black {
+  font-family: 'SUIT-Black', sans-serif;
+  font-weight: 900;
+}
+
+/* 아웃핏 */
+.outfit {
+  font-family: "Outfit", sans-serif;
+}
+
+.outfit-thin {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 100;
+}
+
+.outfit-extra-light {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 200;
+}
+
+.outfit-light {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 300;
+}
+
+.outfit-regular {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 400;
+}
+
+.outfit-medium {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+}
+
+.outfit-semi-bold {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+}
+
+.outfit-bold {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+}
+
+.outfit-extra-bold {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+}
+
+.outfit-black {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+}
+
+
+/* orbitron체 */
+.orbitron-light {
+  font-family: "Orbitron", serif;
+  font-weight: 300;
+}
+
+.orbitron-regular {
+  font-family: "Orbitron", serif;
+  font-weight: 400;
+}
+
+.orbitron-medium {
+  font-family: "Orbitron", serif;
+  font-weight: 500;
+}
+
+.orbitron-semi-bold {
+  font-family: "Orbitron", serif;
+  font-weight: 600;
+}
+
+.orbitron-bold {
+  font-family: "Orbitron", serif;
+  font-weight: 700;
+}
+
+.orbitron-extra-bold {
+  font-family: "Orbitron", serif;
+  font-weight: 800;
+}
+
+/*********** 기본 폰트 클래스 **********/
+.fs-195 {
+  font-size: 195px;
+}
+
+.fs-150 {
+  font-size: 150px;
+}
+
+.fs-130 {
+  font-size: 130px;
+}
+
+.fs-110 {
+  font-size: 110px;
+}
+
+.fs-100 {
+  font-size: 100px;
+}
+
+.fs-90 {
+  font-size: 90px;
+}
+
+.fs-85 {
+  font-size: 85px;
+}
+
+.fs-80 {
+  font-size: 80px;
+}
+
+.fs-70 {
+  font-size: 70px;
+}
+
+.fs-65 {
+  font-size: 65px;
+}
+
+.fs-60 {
+  font-size: 60px;
+}
+
+.fs-55 {
+  font-size: 55px;
+}
+
+.fs-50 {
+  font-size: 50px;
+}
+
+.fs-48 {
+  font-size: 48px;
+}
+
+.fs-45 {
+  font-size: 45px;
+}
+
+.fs-42 {
+  font-size: 42px;
+}
+
+.fs-40 {
+  font-size: 40px;
+}
+
+.fs-38 {
+  font-size: 38px;
+}
+
+.fs-36 {
+  font-size: 36px;
+}
+
+.fs-35 {
+  font-size: 35px;
+}
+
+.fs-34 {
+  font-size: 34px;
+}
+
+.fs-30 {
+  font-size: 30px;
+}
+
+.fs-28 {
+  font-size: 28px;
+}
+
+.fs-25 {
+  font-size: 25px;
+}
+
+.fs-24 {
+  font-size: 24px;
+}
+
+.fs-23 {
+  font-size: 23px;
+}
+
+.fs-22 {
+  font-size: 22px;
+}
+
+.fs-21 {
+  font-size: 21px;
+}
+
+.fs-20 {
+  font-size: 20px;
+}
+
+.fs-19 {
+  font-size: 19px;
+}
+
+.fs-18 {
+  font-size: 18px;
+}
+
+.fs-17 {
+  font-size: 17px;
+}
+
+.fs-16 {
+  font-size: 16px;
+}
+
+.fs-15 {
+  font-size: 15px;
+}
+
+.fs-14 {
+  font-size: 14px;
+}
+
+.fs-13 {
+  font-size: 13px;
+}
+
+.fs-12 {
+  font-size: 12px;
+}
+
+.fs-11 {
+  font-size: 11px;
+}
+
+.fs-5 {
+  font-size: 5px;
+}
+
+/* 모바일 기준 폰트 크기 (768px 이하) */
+@media screen and (max-width: 768px) {
+  .fs-195 {
+    font-size: 90px;
+  }
+
+  /* 모바일에서는 더 작은 크기로 */
+  .fs-150 {
+    font-size: 70px;
+  }
+
+  .fs-130 {
+    font-size: 60px;
+  }
+
+  .fs-110 {
+    font-size: 50px;
+  }
+
+  .fs-100 {
+    font-size: 45px;
+  }
+
+  .fs-90 {
+    font-size: 40px;
+  }
+
+  .fs-85 {
+    font-size: 38px;
+  }
+
+  .fs-80 {
+    font-size: 36px;
+  }
+
+  .fs-70 {
+    font-size: 30px;
+  }
+
+  .fs-65 {
+    font-size: 29px;
+  }
+
+  .fs-60 {
+    font-size: 28px;
+  }
+
+  .fs-55 {
+    font-size: 26px;
+  }
+
+  .fs-50 {
+    font-size: 24px;
+  }
+
+  .fs-48 {
+    font-size: 24px;
+  }
+
+  .fs-45 {
+    font-size: 22px;
+  }
+
+  .fs-42 {
+    font-size: 21px;
+  }
+
+  .fs-40 {
+    font-size: 20px;
+  }
+
+  .fs-38 {
+    font-size: 19px;
+  }
+
+  .fs-36 {
+    font-size: 18px;
+  }
+
+  .fs-35 {
+    font-size: 18px;
+  }
+
+  .fs-34 {
+    font-size: 17px;
+  }
+
+  .fs-30 {
+    font-size: 20px;
+  }
+
+  .fs-28 {
+    font-size: 15px;
+  }
+
+  .fs-25 {
+    font-size: 20px;
+  }
+
+  .fs-24 {
+    font-size: 18px;
+  }
+
+  .fs-23 {
+    font-size: 17px;
+  }
+
+  .fs-22 {
+    font-size: 13px;
+  }
+
+  .fs-21 {
+    font-size: 20px;
+  }
+
+  .fs-20 {
+    font-size: 14px;
+  }
+
+  .fs-19 {
+    font-size: 14px;
+  }
+
+  .fs-18 {
+    font-size: 13px;
+  }
+
+  .fs-17 {
+    font-size: 13px;
+  }
+
+  .fs-16 {
+    font-size: 12px;
+  }
+
+  .fs-15 {
+    font-size: 12px;
+  }
+
+  .fs-14 {
+    font-size: 12px;
+  }
+
+  .fs-13 {
+    font-size: 11px;
+  }
+
+  .fs-12 {
+    font-size: 10px;
+  }
+
+  .fs-11 {
+    font-size: 7px;
+  }
+
+  .fs-5 {
+    font-size: 5px;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1920px) {
+  .fs-195 {
+    font-size: clamp(195px, calc(195px + 0vw), 195px);
+  }
+
+  .fs-150 {
+    font-size: clamp(150px, calc(150px + 0vw), 150px);
+  }
+
+  .fs-130 {
+    font-size: clamp(130px, calc(130px + 0vw), 130px);
+  }
+
+  .fs-110 {
+    font-size: clamp(110px, calc(110px + 0vw), 110px);
+  }
+
+  .fs-100 {
+    font-size: clamp(100px, calc(100px + 0vw), 100px);
+  }
+
+  .fs-90 {
+    font-size: clamp(90px, calc(90px + 0vw), 90px);
+  }
+
+  .fs-85 {
+    font-size: clamp(85px, calc(85px + 0vw), 85px);
+  }
+
+  .fs-80 {
+    font-size: clamp(80px, calc(80px + 0vw), 80px);
+  }
+
+  .fs-70 {
+    font-size: clamp(70px, calc(70px + 0vw), 70px);
+  }
+
+
+  .fs-65 {
+    font-size: clamp(65px, calc(65px + 0vw), 65px);
+  }
+
+  .fs-60 {
+    font-size: clamp(60px, calc(60px + 0vw), 60px);
+  }
+
+  .fs-55 {
+    font-size: clamp(55px, calc(55px + 0vw), 55px);
+  }
+
+  .fs-50 {
+    font-size: clamp(50px, calc(50px + 0vw), 50px);
+  }
+
+  .fs-48 {
+    font-size: clamp(48px, calc(48px + 0vw), 48px);
+  }
+
+  .fs-45 {
+    font-size: clamp(45px, calc(45px + 0vw), 45px);
+  }
+
+  .fs-42 {
+    font-size: clamp(42px, calc(42px + 0vw), 42px);
+  }
+
+  .fs-40 {
+    font-size: clamp(40px, calc(40px + 0vw), 40px);
+  }
+
+  .fs-38 {
+    font-size: clamp(38px, calc(38px + 0vw), 38px);
+  }
+
+  .fs-36 {
+    font-size: clamp(36px, calc(36px + 0vw), 36px);
+  }
+
+  .fs-35 {
+    font-size: clamp(35px, calc(35px + 0vw), 35px);
+  }
+
+  .fs-34 {
+    font-size: clamp(34px, calc(34px + 0vw), 34px);
+  }
+
+  .fs-30 {
+    font-size: clamp(30px, calc(30px + 0vw), 30px);
+  }
+
+  .fs-28 {
+    font-size: clamp(28px, calc(28px + 0vw), 28px);
+  }
+
+  .fs-25 {
+    font-size: clamp(25px, calc(25px + 0vw), 25px);
+  }
+
+  .fs-24 {
+    font-size: clamp(24px, calc(24px + 0vw), 24px);
+  }
+
+  .fs-23 {
+    font-size: clamp(23px, calc(23px + 0vw), 23px);
+  }
+
+  .fs-22 {
+    font-size: clamp(22px, calc(22px + 0vw), 22px);
+  }
+
+  .fs-21 {
+    font-size: clamp(21px, calc(21px + 0vw), 21px);
+  }
+
+  .fs-20 {
+    font-size: clamp(20px, calc(20px + 0vw), 20px);
+  }
+
+  .fs-19 {
+    font-size: clamp(19px, calc(19px + 0vw), 19px);
+  }
+
+  .fs-18 {
+    font-size: clamp(18px, calc(18px + 0vw), 18px);
+  }
+
+  .fs-17 {
+    font-size: clamp(17px, calc(17px + 0vw), 17px);
+  }
+
+  .fs-16 {
+    font-size: clamp(16px, calc(16px + 0vw), 16px);
+  }
+
+  .fs-15 {
+    font-size: clamp(15px, calc(15px + 0vw), 15px);
+  }
+
+  .fs-14 {
+    font-size: clamp(14px, calc(14px + 0vw), 14px);
+  }
+
+  .fs-13 {
+    font-size: clamp(13px, calc(13px + 0vw), 13px);
+  }
+
+  .fs-12 {
+    font-size: clamp(12px, calc(12px + 0vw), 12px);
+  }
+
+  .fs-11 {
+    font-size: clamp(11px, calc(11px + 0vw), 11px);
+  }
+
+  .fs-5 {
+    font-size: clamp(5px, calc(5px + 0vw), 5px);
+  }
+}
+
+/* 최대 크기 설정 (1920px 이상) */
+@media screen and (min-width: 1921px) {
+  .fs-195 {
+    font-size: 195px;
+  }
+
+  .fs-150 {
+    font-size: 150px;
+  }
+
+  .fs-130 {
+    font-size: 130px;
+  }
+
+  .fs-110 {
+    font-size: 110px;
+  }
+
+  .fs-100 {
+    font-size: 100px;
+  }
+
+  .fs-90 {
+    font-size: 90px;
+  }
+
+  .fs-85 {
+    font-size: 85px;
+  }
+
+  .fs-80 {
+    font-size: 80px;
+  }
+
+  .fs-70 {
+    font-size: 70px;
+  }
+
+  .fs-60 {
+    font-size: 60px;
+  }
+
+  .fs-55 {
+    font-size: 55px;
+  }
+
+  .fs-50 {
+    font-size: 50px;
+  }
+
+  .fs-48 {
+    font-size: 48px;
+  }
+
+  .fs-45 {
+    font-size: 45px;
+  }
+
+  .fs-42 {
+    font-size: 42px;
+  }
+
+  .fs-40 {
+    font-size: 40px;
+  }
+
+  .fs-38 {
+    font-size: 38px;
+  }
+
+  .fs-36 {
+    font-size: 36px;
+  }
+
+  .fs-35 {
+    font-size: 35px;
+  }
+
+  .fs-34 {
+    font-size: 34px;
+  }
+
+  .fs-30 {
+    font-size: 30px;
+  }
+
+  .fs-28 {
+    font-size: 28px;
+  }
+
+  .fs-25 {
+    font-size: 25px;
+  }
+
+  .fs-24 {
+    font-size: 24px;
+  }
+
+  .fs-23 {
+    font-size: 23px;
+  }
+
+  .fs-22 {
+    font-size: 22px;
+  }
+
+  .fs-21 {
+    font-size: 21px;
+  }
+
+  .fs-20 {
+    font-size: 20px;
+  }
+
+  .fs-19 {
+    font-size: 19px;
+  }
+
+  .fs-18 {
+    font-size: 18px;
+  }
+
+  .fs-17 {
+    font-size: 17px;
+  }
+
+  .fs-16 {
+    font-size: 16px;
+  }
+
+  .fs-15 {
+    font-size: 15px;
+  }
+
+  .fs-14 {
+    font-size: 14px;
+  }
+
+  .fs-11 {
+    font-size: 11px;
+  }
+
+  .fs-5 {
+    font-size: 5px;
+  }
+}
+
+

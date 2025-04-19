@@ -1,5 +1,7 @@
 header{
-  padding: 20px 0
+  padding: 20px 0;
+  /*background: #ffd446;*/
+  border-bottom: 2px solid #ffd14b
 }
 header h1{
   line-height: 1;
@@ -9,27 +11,35 @@ header h1{
   position: relative;
   text-decoration: none;
   transition: all 0.3s ease;
+  z-index: 2; /* 글자에 z-index 값을 부여 */
 }
 
 .hd_nav a:hover{
   font-weight: bold;
 }
 
-.hd_nav a::after {
+.hd_nav a::before {
   content: '';
   position: absolute;
   width: 0;
-  height: 1px;
-  bottom: 0;
+  height: 15px;
+  bottom: 5px;
   left: 0;
-  background-color: currentColor;
-  transition: width 0.3s ease;
+  background-color: rgba(253, 217, 112, 0.67);
+  transition: width 0.5s ease;
+  z-index: -1; /* 가상 요소를 글자 뒤로 보냄 */
 }
 
-.hd_nav a:hover::after {
+.hd_nav a:hover::before {
   width: 100%;
 }
 
 .logo_first {
-  color: #ffd14b;
+  /*color: #ffd14b;*/
+}
+.user_icon{
+  /*width:15px;*/
+}
+.cart_icon{
+  /*width:20px*/
 }

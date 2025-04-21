@@ -1,39 +1,34 @@
 import React, {useState, FormEvent, ChangeEvent} from 'react';
-import {Eye, EyeOff, LogIn, User, Lock} from 'lucide-react';
+import {Eye, EyeOff, LogIn, User, Lock, Check, AlertTriangle} from 'lucide-react';
 import '../styles/login.css'
 
-const LoginPage = () => {
+
+const SignupPage = () => {
+  const [name, setName] = useState<string>('');
+  const [tel, setTel] = useState<string>('');
   const [email, setEmail] = useState<string>('');
-  const [emailValid , setEmailValid] = useState<boolean>(true);
-
   const [password, setPassword] = useState<string>('');
-  const [pwValid, setPwValid] = useState<boolean>(true);
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [confirmPassword, setConfirmPassword] = useState<string>('');
+  const [passwordMatch, setPasswordMatch] = useState<boolean>(false);
 
-  const [showPassword, setShowPassword] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState('');
 
-  const [errorMessage, setErrorMessage] = useState<string>('')
-  const [pwTouched, setPwTouched] = useState<boolean>(false);
+  const [zip, setZip] = useState<string>('');
+  const [addr1, setAddr1] = useState<string>('');
+  const [addr2, setAddr2] = useState<string>('');
 
-// 이메일 검증
-  const handleEmail = (e: ChangeEvent<HTMLInputElement>) => {
-    const inputEmail: string = e.target.value;
-    setEmail(inputEmail);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string>('');
 
-    const regex = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
-    const isValid = regex.test(inputEmail);
+const handlePassword = (e:ChangeEvent<HTMLInputElement>) =>{
+  const inputPassWord: string =e.target.value;
+  setPassword(inputPassWord);
+}
 
-    setEmailValid(isValid);
-  };
-  // 비밀번호 검증
-  const handlePassWord = (e : ChangeEvent<HTMLInputElement>) => {
-    const inputPassWord: string =e.target.value;
-    setPassword(inputPassWord);
-    setPwTouched(true);
-    setErrorMessage('');
-    const regex = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,20}$/;
-    setPwValid(regex.test(inputPassWord));
+  const handleConfirmPasswordChange = (e: ChangeEvent<HTMLInputElement>) =>{
+    const confirmValue = e.target.value;
+    setConfirmPassword(confirmValue);
+    setPasswordMatch(password === confirmValue);
   }
 
   const handleSubmit =
@@ -77,8 +72,7 @@ const LoginPage = () => {
           <form className="login_form mt-8 " onSubmit={handleSubmit}>
             <div className="col-flex gap-10 ">
               <div>
-                <label htmlFor="email" className="gmarket-medium fc-888"
-                      >
+                <label htmlFor="email" className="gmarket-medium fc-888">
                   이메일
                 </label>
                 <div className="relative input_wrap row-flex-center between relative mt-1">
@@ -92,7 +86,8 @@ const LoginPage = () => {
                       autoComplete="email"
                       required
                       value={email}
-                      onChange={handleEmail}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                          setEmail(e.target.value)}
                       className="block pl-15 pr-3 prt-regular fs-18"
                       placeholder="name@example.com"
                   />
@@ -115,7 +110,7 @@ const LoginPage = () => {
                       autoComplete="current-password"
                       required
                       value={password}
-                      onChange={handlePassWord}
+                      onChange= {handlePassword}
                       className="block pl-15 pr-3 prt-regular fs-18"
                       placeholder="••••••••"
                   />
@@ -132,43 +127,39 @@ const LoginPage = () => {
                   </button>
                 </div>
 
-
+                <div className="relative input_wrap row-flex-center between mt-1">
+                  <div className="absolute flex m-align-center pl-3">
+                    <Lock className="bg-white fc-ccc"/>
+                  </div>
+                  <input
+                      id="confirm-password"
+                      name="confirm-passowrd"
+                      type={showPassword ? "text" : "password"}
+                      autoComplete="current-password"
+                      required
+                      value={confirmPassword}
+                      onChange={handleConfirmPasswordChange}
+                      className="block pl-15 pr-3 prt-regular fs-18"
+                      placeholder="비밀번호 확인"
+                  />
+                  <button
+                      type="button"
+                      className="absolute flex align-center pr-3 pl-3 eye_icon"
+                      onClick={() => setShowPassword(!showPassword)}
+                  >
+                    {confirmPassword  && passwordMatch ? (
+                        <Check className="fc-green"/>
+                    ) : (
+                        <AlertTriangle className="fc-red"/>
+                    )}
+                  </button>
+                </div>
               </div>
             </div>
 
-            <div className="row-flex-center between mt-5 w-100">
 
-              <div className="flex align-center">
-                <input
-                    id="remember-me"
-                    name="remember-me"
-                    type="checkbox"
-                    className=""
-                />
-                <label htmlFor="remember-me" className="ws-nowrap
-                gmarket-medium fs-14 ml-2 ">
-                  로그인 상태 유지
-                </label>
-              </div>
 
-              <div className="forgot_pw gmarket-medium fs-14 fc-888">
-                <a href="#" className="">
-                  비밀번호를 잊으셨나요?
-                </a>
-              </div>
 
-            </div>
-
-            <div>
-              <button
-                  type="submit"
-                  disabled={isLoading}
-                  className="flex-center w-100 login_submit_btn mt-10
-                  gmarket-medium fs-18 fc-ccc"
-              >
-                {isLoading ? '로그인 중...' : '로그인'}
-              </button>
-            </div>
           </form>
 
           <div className="mt-6">
@@ -202,17 +193,10 @@ const LoginPage = () => {
 
           </div>
 
-          <div className="txt-center mt-4">
-            <p className="gmarket-medium fs-14 fc-888">
-              계정이 없으신가요?{' '}
-              <a href="/signup" className="gmarket-medium fs-14 fc-black">
-                회원가입
-              </a>
-            </p>
-          </div>
+
         </div>
       </div>
   );
 };
 
-export default LoginPage;
+export default SignupPage;

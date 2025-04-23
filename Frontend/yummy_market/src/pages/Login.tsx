@@ -1,13 +1,40 @@
-import React, {useState, FormEvent} from 'react';
+import React, {useState, FormEvent, ChangeEvent} from 'react';
 import {Eye, EyeOff, LogIn, User, Lock} from 'lucide-react';
 import '../styles/login.css'
 
 const LoginPage = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState<string>('');
+  const [emailValid , setEmailValid] = useState<boolean>(true);
+
+  const [password, setPassword] = useState<string>('');
+  const [pwValid, setPwValid] = useState<boolean>(true);
+
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
+
+  const [errorMessage, setErrorMessage] = useState<string>('')
+  const [pwTouched, setPwTouched] = useState<boolean>(false);
+
+// 이메일 검증
+  const handleEmail = (e: ChangeEvent<HTMLInputElement>) => {
+    const inputEmail: string = e.target.value;
+    setEmail(inputEmail);
+
+    const regex = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+    const isValid = regex.test(inputEmail);
+
+    setEmailValid(isValid);
+  };
+  // 비밀번호 검증
+  const handlePassWord = (e : ChangeEvent<HTMLInputElement>) => {
+    const inputPassWord: string =e.target.value;
+    setPassword(inputPassWord);
+    setPwTouched(true);
+    setErrorMessage('');
+    const regex = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,20}$/;
+    setPwValid(regex.test(inputPassWord));
+  }
 
   const handleSubmit =
       async (e: FormEvent<HTMLFormElement>) => {
@@ -50,7 +77,8 @@ const LoginPage = () => {
           <form className="login_form mt-8 " onSubmit={handleSubmit}>
             <div className="col-flex gap-10 ">
               <div>
-                <label htmlFor="email" className="gmarket-medium fc-888">
+                <label htmlFor="email" className="gmarket-medium fc-888"
+                      >
                   이메일
                 </label>
                 <div className="relative input_wrap row-flex-center between relative mt-1">
@@ -64,8 +92,7 @@ const LoginPage = () => {
                       autoComplete="email"
                       required
                       value={email}
-                      onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                          setEmail(e.target.value)}
+                      onChange={handleEmail}
                       className="block pl-15 pr-3 prt-regular fs-18"
                       placeholder="name@example.com"
                   />
@@ -88,7 +115,7 @@ const LoginPage = () => {
                       autoComplete="current-password"
                       required
                       value={password}
-                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
+                      onChange={handlePassWord}
                       className="block pl-15 pr-3 prt-regular fs-18"
                       placeholder="••••••••"
                   />
@@ -104,6 +131,8 @@ const LoginPage = () => {
                     )}
                   </button>
                 </div>
+
+
               </div>
             </div>
 

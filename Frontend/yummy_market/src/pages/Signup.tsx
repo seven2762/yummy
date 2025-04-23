@@ -1,7 +1,7 @@
 import React, {useState, FormEvent, ChangeEvent, useEffect} from 'react';
 import {Eye, EyeOff, LogIn, User, Lock, Check, AlertTriangle, Phone, MapPinCheckInside} from 'lucide-react';
 import '../styles/login.css'
-
+import axios from 'axios'; // axios 임포트 추가
 import { DaumPostcodeData } from '../types/daum';
 
 
@@ -42,28 +42,47 @@ const SignupPage = () => {
 
   const handleSubmit =
       async (e: FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        setError('');
 
-        if (!email || !password) {
-          setError('이메일과 비밀번호를 모두 입력해주세요.');
+        e.preventDefault();
+
+        if(!passwordMatch){
+          setError('비밀번호가 일치하지 않습니다.');
           return;
         }
+        if(!name || !email || !password || !tel){
+          setError('모든 필수 항목을 입력해주세요.');
+        }
 
-        setIsLoading(true);
+        const userData= {
+          name,
+          email,
+          password,
+          tel,
+          address:{
+            zip, addr1, addr2
+          }
+        };
 
-        // 실제 로그인 로직을 여기에 구현합니다
-        // API 호출이나 인증 로직 등을 추가할 수 있습니다
         try {
-          // API 호출을 시뮬레이션합니다
-          await new Promise(resolve => setTimeout(resolve, 1500));
-          console.log('로그인 시도:', {email});
+          setIsLoading(true);
+          setError('');
+          console.log(userData)
+          const response = await axios.post('/api/users', userData);
 
-          // 성공 메시지 (실제 구현에서는 리다이렉트 등의 로직으로 대체)
-          alert('로그인 성공!');
-        } catch (err) {
-          setError('로그인에 실패했습니다. 다시 시도해주세요.');
-          console.error('로그인 오류:', err);
+          // 성공적인 응답 처리
+          if (response.status === 200 || response.status === 201) {
+            // 회원가입 성공 - 로그인 페이지로 리다이렉트 또는 성공 메시지 표시
+            alert('회원가입이 완료되었습니다. 로그인 페이지로 이동합니다.');
+            window.location.href = '/login'; // 로그인 페이지로 리다이렉트
+          }
+
+        } catch (err:any) {
+          // 오류 응답 처리
+          console.error('회원가입 오류:', err);
+          setError(
+              err.response?.data?.message ||
+              '회원가입 처리 중 오류가 발생했습니다. 다시 시도해주세요.'
+          );
         } finally {
           setIsLoading(false);
         }
@@ -100,17 +119,14 @@ const SignupPage = () => {
   return (
       <div className="center">
         <div className="login_wrap col-flex align-center justify-center ">
-          {error && (
-              <div className="">
-                {error}
-              </div>
-          )}
+          {/* 에러 메시지 표시 */}
+
 
           <form className="login_form mt-8 " onSubmit={handleSubmit}>
             <div className="col-flex gap-10 ">
 
               <div>
-                <label htmlFor="email" className="gmarket-medium fc-888">
+                <label htmlFor="email" className="su-medium fc-888">
                   이름
                 </label>
                 <div className="relative input_wrap row-flex-center between relative mt-1">
@@ -126,14 +142,14 @@ const SignupPage = () => {
                       value={name}
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                           setName(e.target.value)}
-                      className="block pl-15 pr-3 prt-regular fs-18"
+                      className="block pl-15 pr-3 su-regular fs-18"
                       placeholder="이름을 입력해주세요."
                   />
                 </div>
               </div>
 
               <div>
-                <label htmlFor="email" className="gmarket-medium fc-888">
+                <label htmlFor="email" className="su-medium fc-888">
                   이메일
                 </label>
                 <div className="relative input_wrap row-flex-center between relative mt-1">
@@ -149,7 +165,7 @@ const SignupPage = () => {
                       value={email}
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                           setEmail(e.target.value)}
-                      className="block pl-15 pr-3 prt-regular fs-18"
+                      className="block pl-15 pr-3 su-regular fs-18"
                       placeholder="name@example.com"
                   />
                 </div>
@@ -157,7 +173,7 @@ const SignupPage = () => {
 
               <div>
                 <label htmlFor="password"
-                       className="gmarket-medium fc-888">
+                       className="su-medium fc-888">
                   비밀번호
                 </label>
                 <div className="relative input_wrap row-flex-center between mt-1">
@@ -172,7 +188,7 @@ const SignupPage = () => {
                       required
                       value={password}
                       onChange={handlePassword}
-                      className="block pl-15 pr-3 prt-regular fs-18"
+                      className="block pl-15 pr-3 su-regular fs-18"
                       placeholder="••••••••"
                   />
                   <button
@@ -200,7 +216,7 @@ const SignupPage = () => {
                       required
                       value={confirmPassword}
                       onChange={handleConfirmPasswordChange}
-                      className="block pl-15 pr-3 prt-regular fs-18"
+                      className="block pl-15 pr-3 su-regular fs-18"
                       placeholder="비밀번호 확인"
                   />
                   <button
@@ -219,7 +235,7 @@ const SignupPage = () => {
 
 
               <div>
-                <label htmlFor="email" className="gmarket-medium fc-888">
+                <label htmlFor="email" className="su-medium fc-888">
                   연락처
 
                 </label>
@@ -240,7 +256,7 @@ const SignupPage = () => {
                         const value = e.currentTarget.value;
                         e.currentTarget.value = value.replace(/[^0-9]/g, '');
                       }}
-                      className="block pl-15 pr-3 prt-regular fs-18"
+                      className="block pl-15 pr-3 su-regular fs-18"
                       placeholder="연락처를 입력해주세요."
                   />
                 </div>
@@ -248,7 +264,7 @@ const SignupPage = () => {
 
 
               <div>
-                <label htmlFor="address" className="gmarket-medium fc-888">주소(선택)</label>
+                <label htmlFor="address" className="su-medium fc-888">주소(선택)</label>
                 <div className="row-flex-center gap-10 mt-1">
                   <div className="input_wrap row-flex-center between">
                     <input
@@ -257,17 +273,19 @@ const SignupPage = () => {
                         value={zip}
                         readOnly
                         placeholder="우편번호"
-                        className="block pr-3 prt-regular fs-18"
-                        style={{width : '280px'}}
+                        className="block pr-3 su-regular fs-18"
+                        style={{width: '280px'}}
                     />
                     <button
                         type="button"
                         onClick={sample6_execDaumPostcode}
-                        className="search_btn gmarket-medium fs-14"
-                        style={{ width : '108px', marginLeft :'10px' ,height: '50px',background : "#f6f6f6",
-                          borderRadius : '5px', border: ' 1px solid #d7d7d7',  }}
+                        className="search_btn su-medium fs-14"
+                        style={{
+                          width: '108px', marginLeft: '10px', height: '50px', background: "#f6f6f6",
+                          borderRadius: '5px', border: ' 1px solid #d7d7d7',
+                        }}
                     >
-                우편번호찾기
+                      우편번호찾기
                     </button>
                   </div>
 
@@ -280,7 +298,7 @@ const SignupPage = () => {
                       value={addr1}
                       readOnly
                       placeholder="주소"
-                      className="block pr-3 prt-regular fs-18"
+                      className="block pr-3 su-regular fs-18"
                   />
                 </div>
 
@@ -291,10 +309,22 @@ const SignupPage = () => {
                       value={addr2}
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) => setAddr2(e.target.value)}
                       placeholder="상세주소"
-                      className="block pr-3 prt-regular fs-18"
+                      className="block pr-3 su-regular fs-18"
                   />
                 </div>
               </div>
+              {error && (
+                  <div className="error-message mt-2 fc-red su-regular fs-14">
+                    {error}
+                  </div>
+              )}
+              <button
+                  type="submit"
+                  disabled={isLoading}
+                  className="join_submit_btn bd-radius-5 su-medium fs-18">
+                {isLoading ? '처리 중...' : '회원가입'}
+              </button>
+
 
             </div>
 
@@ -310,7 +340,7 @@ const SignupPage = () => {
             {/*    <div className=""></div>*/}
             {/*  </div>*/}
             {/*  <div className="relative flex justify-center ">*/}
-            {/*    <span className="bg-white gmarket-medium">또는</span>*/}
+            {/*    <span className="bg-white su-medium">또는</span>*/}
             {/*  </div>*/}
             {/*</div>*/}
 

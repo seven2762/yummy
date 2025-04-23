@@ -249,12 +249,12 @@
 /*  font-style: normal;*/
 /*}*/
 
-@font-face {
-  font-family: 'SUIT Variable';
-  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Variable.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
+/*@font-face {*/
+/*  font-family: 'SUIT Variable';*/
+/*  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Variable.woff2') format('woff2');*/
+/*  font-weight: normal;*/
+/*  font-style: normal;*/
+/*}*/
 
 /* 프리텐다드체 */
 .prt {
@@ -501,56 +501,139 @@
 /*}*/
 
 
+
 /* 스위트체 */
-.suit {
-  font-family: 'SUIT Variable', sans-serif;
+@font-face {
+  font-family: 'SUIT Variable';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Variable.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SUIT-Thin';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Thin.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SUIT-Light';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Light.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SUIT-ExtraLight';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-ExtraLight.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SUIT-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SUIT-Medium';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SUIT-SemiBold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-SemiBold.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SUIT-Bold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Bold.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SUIT-ExtraBold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-ExtraBold.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SUIT-Heavy';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Heavy.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
 
 .su-thin {
-  font-family: 'SUIT-Thin', sans-serif;
-  font-weight: 100;
+  font-family: 'SUIT-Thin';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Thin.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
 
 .su-extra-light {
-  font-family: 'SUIT-Extra-Light', sans-serif;
-  font-weight: 200;
+  font-family: 'SUIT-ExtraLight';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-ExtraLight.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
 
 .su-light {
-  font-family: 'SUIT-Light', sans-serif;
-  font-weight: 300;
+  font-family: 'SUIT-Light';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Light.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
 
 .su-regular {
-  font-family: 'SUIT-Regular', sans-serif;
-  font-weight: 400;
+  font-family: 'SUIT-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
 
 .su-medium {
-  font-family: 'SUIT', sans-serif;
-  font-weight: 500;
+  font-family: 'SUIT-Medium';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Medium.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
 
 .su-semi-bold {
-  font-family: 'SUIT-Semi-Bold', sans-serif;
-  font-weight: 600;
+  font-family: 'SUIT-SemiBold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-SemiBold.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
 
 .su-bold {
-  font-family: 'SUIT-Bold', sans-serif;
-  font-weight: 700;
+  font-family: 'SUIT-Bold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Bold.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
 
 .su-extra-bold {
-  font-family: 'SUIT-Extra-Bold', sans-serif;
-  font-weight: 800;
+  font-family: 'SUIT-ExtraBold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-ExtraBold.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
 
 .su-black {
-  font-family: 'SUIT-Black', sans-serif;
-  font-weight: 900;
+  font-family: 'SUIT-Heavy';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Heavy.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
 
+.su-heavy{
+  font-family: 'SUIT-Heavy';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Heavy.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
 /* 아웃핏 */
 .outfit {
   font-family: "Outfit", sans-serif;

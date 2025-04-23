@@ -1,5 +1,6 @@
 package com.spring.yummy.member.auth.jwt;
 
+import com.spring.yummy.member.auth.dto.TokenDto;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
@@ -30,60 +31,94 @@ public class TokenProvider implements InitializingBean {
     private final Logger logger = LoggerFactory.getLogger(TokenProvider.class);
     private static final String AUTHORITIES_KEY = "auth";
     private final String secret;
-    private final long tokenValidityInMilliseconds;
+    private final long accessTokenValidityInMilliseconds;
+    private final long refreshTokenValidityInMilliseconds;  // Refresh Token 유효 시간 추가
     private Key key;
 
     public TokenProvider(
-            @Value("${jwt.secret}") String secret,
-            @Value("${jwt.token-validity-in-seconds}") long tokenValidityInSeconds) {
+        @Value("${jwt.secret}") String secret,
+        @Value("${jwt.access-expired-time}") long accessTokenValidityInSeconds,
+        @Value("${jwt.refresh-token-expired-time}") long refreshTokenValidityInSeconds) {
         this.secret = secret;
-        this.tokenValidityInMilliseconds = tokenValidityInSeconds * 1000;
+        this.accessTokenValidityInMilliseconds = accessTokenValidityInSeconds * 1000;
+        this.refreshTokenValidityInMilliseconds = refreshTokenValidityInSeconds * 1000;
     }
-    
-    // 빈이 생성되고 주입을 받은 후에 secret값을 Base64 Decode해서 key 변수에 할당하기 위해
+
     @Override
     public void afterPropertiesSet() {
         byte[] keyBytes = Decoders.BASE64.decode(secret);
         this.key = Keys.hmacShaKeyFor(keyBytes);
     }
 
-    public String createToken(Authentication authentication) {
+    // Access Token 생성 (기존 createToken 메서드)
+    public String createAccessToken(Authentication authentication) {
         String authorities = authentication.getAuthorities().stream()
-                .map(GrantedAuthority::getAuthority)
-                .collect(Collectors.joining(","));
+            .map(GrantedAuthority::getAuthority)
+            .collect(Collectors.joining(","));
 
-        // 토큰의 expire 시간을 설정
         long now = (new Date()).getTime();
-        Date validity = new Date(now + this.tokenValidityInMilliseconds);
+        Date validity = new Date(now + this.accessTokenValidityInMilliseconds);
 
         return Jwts.builder()
-                .setSubject(authentication.getName())
-                .claim(AUTHORITIES_KEY, authorities) // 정보 저장
-                .signWith(key, SignatureAlgorithm.HS512) // 사용할 암호화 알고리즘과 , signature 에 들어갈 secret값 세팅
-                .setExpiration(validity) // set Expire Time 해당 옵션 안넣으면 expire안함
-                .compact();
+            .setSubject(authentication.getName())
+            .claim(AUTHORITIES_KEY, authorities)
+            .signWith(key, SignatureAlgorithm.HS512)
+            .setExpiration(validity)
+            .compact();
     }
 
-    // 토큰으로 클레임을 만들고 이를 이용해 유저 객체를 만들어서 최종적으로 authentication 객체를 리턴
+    // Refresh Token 생성 메서드 추가
+    public String createRefreshToken(Authentication authentication) {
+        long now = (new Date()).getTime();
+        Date validity = new Date(now + this.refreshTokenValidityInMilliseconds);
+
+        return Jwts.builder()
+            .setSubject(authentication.getName())
+            .signWith(key, SignatureAlgorithm.HS512)
+            .setExpiration(validity)
+            .compact();
+    }
+
+    // TokenDto를 반환하는 통합 메서드 (Access Token + Refresh Token)
+    public TokenDto createTokenDto(Authentication authentication) {
+        String accessToken = createAccessToken(authentication);
+        String refreshToken = createRefreshToken(authentication);
+
+        return new TokenDto(accessToken, refreshToken);
+    }
+
+    // 기존 getAuthentication 메서드
     public Authentication getAuthentication(String token) {
         Claims claims = Jwts
-                .parserBuilder()
-                .setSigningKey(key)
-                .build()
-                .parseClaimsJws(token)
-                .getBody();
+            .parserBuilder()
+            .setSigningKey(key)
+            .build()
+            .parseClaimsJws(token)
+            .getBody();
 
         Collection<? extends GrantedAuthority> authorities =
-                Arrays.stream(claims.get(AUTHORITIES_KEY).toString().split(","))
-                        .map(SimpleGrantedAuthority::new)
-                        .collect(Collectors.toList());
+            Arrays.stream(claims.get(AUTHORITIES_KEY).toString().split(","))
+                .map(SimpleGrantedAuthority::new)
+                .collect(Collectors.toList());
 
         User principal = new User(claims.getSubject(), "", authorities);
 
         return new UsernamePasswordAuthenticationToken(principal, token, authorities);
     }
 
-    // 토큰의 유효성 검증을 수행
+    // Refresh Token에서 사용자 이름 추출 (Refresh Token에는 권한 정보 없음)
+    public String getUsernameFromRefreshToken(String token) {
+        Claims claims = Jwts
+            .parserBuilder()
+            .setSigningKey(key)
+            .build()
+            .parseClaimsJws(token)
+            .getBody();
+
+        return claims.getSubject();
+    }
+
+    // 토큰 유효성 검증 (Access Token, Refresh Token 모두 사용 가능)
     public boolean validateToken(String token) {
         try {
             Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token);
@@ -98,5 +133,27 @@ public class TokenProvider implements InitializingBean {
             logger.info("JWT 토큰이 잘못되었습니다.");
         }
         return false;
+    }
+
+    // Refresh Token으로 새 Access Token 발급
+    public String refreshAccessToken(String refreshToken) {
+        // Refresh Token 유효성 검사
+        if (!validateToken(refreshToken)) {
+            throw new RuntimeException("유효하지 않은 Refresh Token입니다.");
+        }
+
+        // Refresh Token에서 사용자 이름 추출
+        String username = getUsernameFromRefreshToken(refreshToken);
+
+        // 사용자 권한 정보 조회 (이 부분은 실제 구현 시 사용자 서비스를 통해 DB에서 조회해야 함)
+        // 여기서는 예시로 간단히 처리
+        Collection<GrantedAuthority> authorities = Arrays.asList(new SimpleGrantedAuthority("ROLE_USER"));
+
+        // 인증 객체 생성
+        Authentication authentication =
+            new UsernamePasswordAuthenticationToken(new User(username, "", authorities), "", authorities);
+
+        // 새 Access Token 생성
+        return createAccessToken(authentication);
     }
 }

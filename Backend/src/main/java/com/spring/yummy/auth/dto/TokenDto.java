@@ -1,4 +1,4 @@
-package com.spring.yummy.member.auth.dto;
+package com.spring.yummy.auth.dto;
 
 public record TokenDto (String accessToken , String refreshToken) {
 

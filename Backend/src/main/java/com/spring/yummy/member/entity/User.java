@@ -39,6 +39,7 @@ public class User  extends BaseEntity {
     private String email;
     @Column(nullable = false)
     private String phone;
+    @Builder.Default
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Address> address = new ArrayList<>();
     @Column(nullable = false)
@@ -55,7 +56,7 @@ public class User  extends BaseEntity {
             .role(Role.USER)
             .build();
 
-        user.initAuditInfo(user);
+        user.initAuditInfo(user.id);
         return user;
     }
     public void addAddress(Address address) {

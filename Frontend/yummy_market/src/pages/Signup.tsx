@@ -1,10 +1,8 @@
 import React, {useState, FormEvent, ChangeEvent, useEffect} from 'react';
 import {Eye, EyeOff, LogIn, User, Lock, Check, AlertTriangle, Phone, MapPinCheckInside} from 'lucide-react';
 import '../styles/login.css'
-import axios from 'axios'; // axios 임포트 추가
+import axios from 'axios';
 import { DaumPostcodeData } from '../types/daum';
-
-
 
 const SignupPage = () => {
   const [name, setName] = useState<string>('');
@@ -14,11 +12,9 @@ const SignupPage = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [confirmPassword, setConfirmPassword] = useState<string>('');
   const [passwordMatch, setPasswordMatch] = useState<boolean>(false);
-
   const [zip, setZip] = useState<string>('');
-  const [addr1, setAddr1] = useState<string>('');
-  const [addr2, setAddr2] = useState<string>('');
-
+  const [street, setStreet] = useState<string>('');
+  const [etc, setEtc] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>('');
 
@@ -29,87 +25,99 @@ const SignupPage = () => {
     document.head.appendChild(script);
   }, []);
 
+
+// 비밀번호 핸들링
   const handlePassword = (e: ChangeEvent<HTMLInputElement>) => {
     const inputPassWord: string = e.target.value;
     setPassword(inputPassWord);
   }
 
+// 비밀번호 확인 핸들링
   const handleConfirmPasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
     const confirmValue = e.target.value;
     setConfirmPassword(confirmValue);
     setPasswordMatch(password === confirmValue);
   }
 
-  const handleSubmit =
-      async (e: FormEvent<HTMLFormElement>) => {
 
-        e.preventDefault();
+// 회원가입핸들링
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
 
-        if(!passwordMatch){
-          setError('비밀번호가 일치하지 않습니다.');
-          return;
+    if(!passwordMatch){
+      setError('비밀번호가 일치하지 않습니다.');
+      return;
+    }
+    if(!name || !email || !password || !tel){
+      setError('모든 필수 항목을 입력해주세요.');
+      return;
+    }
+
+    const userData = {
+      name,
+      email,
+      password,
+      tel,
+      address:{
+        zip, street, etc
+      }
+    };
+
+    try {
+      // 로딩 상태 활성화
+      setIsLoading(true);
+      setError('');
+
+      // 회원가입 요청 보내기 (백엔드 API 엔드포인트로 전송)
+      console.log('회원가입 데이터:', userData);
+      // 슬래시로 시작하는 엔드포인트 사용 (프록시 설정과 함께 작동)
+      const response = await axios.post('/api/v1/user/signUp', userData, {
+        headers: {
+          'Content-Type': 'application/json'
         }
-        if(!name || !email || !password || !tel){
-          setError('모든 필수 항목을 입력해주세요.');
-        }
+      });
 
-        const userData= {
-          name,
-          email,
-          password,
-          tel,
-          address:{
-            zip, addr1, addr2
-          }
-        };
+      // 성공적인 응답 처리
+      if (response.status === 200 || response.status === 201) {
+        // 회원가입 성공 - 로그인 페이지로 리다이렉트 또는 성공 메시지 표시
+        alert('회원가입이 완료되었습니다. 로그인 페이지로 이동합니다.');
+        window.location.href = '/login'; // 로그인 페이지로 리다이렉트
+      }
+    } catch (err:any) {
+      // 오류 응답 처리
+      console.error('회원가입 오류:', err);
+      setError(
+          err.response?.data?.message ||
+          '회원가입 처리 중 오류가 발생했습니다. 다시 시도해주세요.'
+      );
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
-        try {
-          setIsLoading(true);
-          setError('');
-          console.log(userData)
-          const response = await axios.post('/api/users', userData);
-
-          // 성공적인 응답 처리
-          if (response.status === 200 || response.status === 201) {
-            // 회원가입 성공 - 로그인 페이지로 리다이렉트 또는 성공 메시지 표시
-            alert('회원가입이 완료되었습니다. 로그인 페이지로 이동합니다.');
-            window.location.href = '/login'; // 로그인 페이지로 리다이렉트
-          }
-
-        } catch (err:any) {
-          // 오류 응답 처리
-          console.error('회원가입 오류:', err);
-          setError(
-              err.response?.data?.message ||
-              '회원가입 처리 중 오류가 발생했습니다. 다시 시도해주세요.'
-          );
-        } finally {
-          setIsLoading(false);
-        }
-      };
-
+  // 다음 주소 api
   const sample6_execDaumPostcode = () => {
     if (window.daum && window.daum.Postcode) {
       new window.daum.Postcode({
-      oncomplete: function(data: DaumPostcodeData) {
-        // 나머지 코드는 동일
-        let addr = '';
+        oncomplete: function(data: DaumPostcodeData) {
+          // 나머지 코드는 동일
+          let addr = '';
 
-        if (data.userSelectedType === 'R') {
-          addr = data.roadAddress;
-        } else {
-          addr = data.jibunAddress;
+          if (data.userSelectedType === 'R') {
+            addr = data.roadAddress;
+          } else {
+            addr = data.jibunAddress;
+          }
+
+          setZip(data.zonecode);
+          setStreet(addr);
+
+          // null 체크 추가
+          const detailAddrInput = document.getElementById("detailAddress");
+          if (detailAddrInput) {
+            detailAddrInput.focus();
+          }
         }
-
-        setZip(data.zonecode);
-        setAddr1(addr);
-
-        // null 체크 추가
-        const detailAddrInput = document.getElementById("detailAddress");
-        if (detailAddrInput) {
-          detailAddrInput.focus();
-        }
-      }
       }).open();
     } else {
       alert('주소 검색 서비스를 불러오는 중입니다. 잠시 후 다시 시도해주세요.');
@@ -118,13 +126,10 @@ const SignupPage = () => {
 
   return (
       <div className="center">
-        <div className="login_wrap col-flex align-center justify-center ">
+        <div className="login_wrap col-flex align-center justify-center">
           {/* 에러 메시지 표시 */}
-
-
-          <form className="login_form mt-8 " onSubmit={handleSubmit}>
-            <div className="col-flex gap-10 ">
-
+          <form className="login_form mt-8" onSubmit={handleSubmit}>
+            <div className="col-flex gap-10">
               <div>
                 <label htmlFor="email" className="su-medium fc-888">
                   이름
@@ -233,11 +238,9 @@ const SignupPage = () => {
                 </div>
               </div>
 
-
               <div>
                 <label htmlFor="email" className="su-medium fc-888">
                   연락처
-
                 </label>
                 <div className="relative input_wrap row-flex-center between relative mt-1">
                   <div className="absolute flex m-align-center pl-3">
@@ -261,7 +264,6 @@ const SignupPage = () => {
                   />
                 </div>
               </div>
-
 
               <div>
                 <label htmlFor="address" className="su-medium fc-888">주소(선택)</label>
@@ -288,14 +290,13 @@ const SignupPage = () => {
                       우편번호찾기
                     </button>
                   </div>
-
                 </div>
 
                 <div className="relative input_wrap row-flex-center between mt-1">
                   <input
                       id="sample6_address"
                       type="text"
-                      value={addr1}
+                      value={street}
                       readOnly
                       placeholder="주소"
                       className="block pr-3 su-regular fs-18"
@@ -306,66 +307,35 @@ const SignupPage = () => {
                   <input
                       id="detailAddress"
                       type="text"
-                      value={addr2}
-                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => setAddr2(e.target.value)}
+                      value={etc}
+                      onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEtc(e.target.value)}
                       placeholder="상세주소"
                       className="block pr-3 su-regular fs-18"
                   />
                 </div>
               </div>
+
               {error && (
                   <div className="error-message mt-2 fc-red su-regular fs-14">
                     {error}
                   </div>
               )}
+
               <button
                   type="submit"
                   disabled={isLoading}
                   className="join_submit_btn bd-radius-5 su-medium fs-18">
                 {isLoading ? '처리 중...' : '회원가입'}
               </button>
-
-
             </div>
-
-
           </form>
 
           <div className="mt-6">
-
-            {/*sns 로그인 api*/}
-
-            {/*<div className="relative">*/}
-            {/*  <div className="absolute flex align-center">*/}
-            {/*    <div className=""></div>*/}
-            {/*  </div>*/}
-            {/*  <div className="relative flex justify-center ">*/}
-            {/*    <span className="bg-white su-medium">또는</span>*/}
-            {/*  </div>*/}
-            {/*</div>*/}
-
-            {/*<div className="">*/}
-            {/*  <button*/}
-            {/*      type="button"*/}
-            {/*      className=""*/}
-            {/*  >*/}
-            {/*    <span>Google로 계속</span>*/}
-            {/*  </button>*/}
-            {/*  <button*/}
-            {/*      type="button"*/}
-            {/*      className=""*/}
-            {/*  >*/}
-            {/*    <span>Apple로 계속</span>*/}
-            {/*  </button>*/}
-            {/*</div>*/}
-
-
+            {/* SNS 로그인 API 주석 처리 부분 */}
           </div>
-
-
         </div>
       </div>
   );
-};
+}; 
 
 export default SignupPage;

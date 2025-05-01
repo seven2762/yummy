@@ -4,8 +4,8 @@ server:
 spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/yummy
-    username: root
-    password: 12341234
+    username: ${POSTGRES_USER}
+    password: ${POSTGRES_PASSWORD}
   jpa:
     properties:
       hibernate:
@@ -14,8 +14,13 @@ spring:
       ddl-auto: update
       naming:
         physical-strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
-#  data:
-#    redis:
-#      port: 6379
-#      host: localhost
-#      password: jspark13
+    show-sql: true
+  data:
+    redis:
+      port: 6379
+      host: localhost
+      password: ${REDIS_PASSWORD}
+jwt:
+  secret: ${JWT_TOKEN}
+  access-expired-time: 3600
+  refresh-token-expired-time: 1209600

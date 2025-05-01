@@ -9,10 +9,12 @@ import com.spring.yummy.member.repository.AddressRepository;
 import com.spring.yummy.member.repository.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class UserService {
@@ -25,8 +27,13 @@ public class UserService {
     @Transactional
     public void createUser(UserCreateRequestDTO requestDTO) {
         // 사용자 생성
+
+        log.info("==== 회원가입 요청 받음 ====");
+        log.info("RequestDTO: {}", requestDTO);
+        log.info("Username: {}, Email: {}, Phone: {}",
+            requestDTO.name(), requestDTO.email(), requestDTO.phone());
         User user = User.create(
-            requestDTO.username(),
+            requestDTO.name(),
             bCryptPasswordEncoder.encode(requestDTO.password()),
             requestDTO.email(),
             requestDTO.phone()

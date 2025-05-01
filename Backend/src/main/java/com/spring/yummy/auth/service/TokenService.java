@@ -1,6 +1,7 @@
 package com.spring.yummy.auth.service;
 
 import com.spring.yummy.auth.dto.TokenDto;
+import com.spring.yummy.auth.entity.RefreshToken;
 import com.spring.yummy.auth.jwt.TokenProvider;
 import com.spring.yummy.auth.repository.RefreshTokenRepository;
 import org.springframework.security.core.Authentication;
@@ -20,6 +21,7 @@ public class TokenService {
         this.refreshTokenRepository = refreshTokenRepository;
     }
 
+
     /**
      * 리프레시 토큰을 사용하여 새 토큰 발급
      */
@@ -34,11 +36,11 @@ public class TokenService {
         String username = tokenProvider.getUsernameFromRefreshToken(refreshToken);
         
         // Redis에 저장된 리프레시 토큰 확인
-        String savedRefreshToken = refreshTokenRepository.findByUsername(username)
+        RefreshToken savedToken = refreshTokenRepository.findByToken(username)
             .orElseThrow(() -> new NoSuchElementException("저장된 리프레시 토큰이 없습니다."));
         
         // 전달된 리프레시 토큰과 저장된 토큰 비교
-        if (!savedRefreshToken.equals(refreshToken)) {
+        if (!savedToken.getToken().equals(refreshToken)) {
             throw new RuntimeException("리프레시 토큰이 일치하지 않습니다.");
         }
 
@@ -48,17 +50,5 @@ public class TokenService {
         
         // 기존 리프레시 토큰 유지 (리프레시 토큰은 갱신하지 않음)
         return new TokenDto(newAccessToken, refreshToken);
-    }
-
-    /**
-     * 로그아웃 처리
-     */
-    @Transactional
-    public void logout(String accessToken) {
-        Authentication authentication = tokenProvider.getAuthentication(accessToken);
-        String username = authentication.getName();
-        
-        // 토큰 무효화 처리
-        tokenProvider.logout(accessToken, username);
     }
 }

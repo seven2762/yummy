@@ -3,3 +3,4 @@
 **.iml
 **.conf
 .DS_Store
+.env

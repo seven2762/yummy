@@ -24,3 +24,9 @@ jwt:
   secret: ${JWT_TOKEN}
   access-expired-time: 3600
   refresh-token-expired-time: 1209600
+
+logging:
+  level:
+    org:
+      springframework:
+        security=DEBUG:

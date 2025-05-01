@@ -47,6 +47,13 @@ public class UserService {
 
     private Address createAddress(User user , AddressRequestDTO requestDTO) {
 
+
+
+        log.info("==== 회원가입 요청 받음 ====");
+        log.info("RequestDTO: {}", requestDTO);
+        log.info("zipcode: {}, street: {}, etc: {}", requestDTO.zipCode(), requestDTO.street(),
+            requestDTO.etc());
+
         return Address.CreateAddress(
             user,
             requestDTO.street(),

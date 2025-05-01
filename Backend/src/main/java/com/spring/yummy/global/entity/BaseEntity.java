@@ -34,17 +34,20 @@ public class BaseEntity {
     private LocalDateTime deletedAt;
 
     @Column
-    private String createdBy;
+    private Long createdBy;
 
     @Column
-    private String updatedBy;
+    private Long updatedBy;
 
     @Column
-    private String deletedBy;
+    private Long deletedBy;
 
+    protected void updateAuditInfo(Long userId) {
+        this.updatedBy = userId;
+    }
 
-    protected void initAuditInfo(User user) {
-        this.createdBy = user.getUsername();
-        this.updatedBy = user.getUsername();
+    protected void initAuditInfo(Long userId) {
+        this.createdBy = userId;
+        this.updatedBy = userId;
     }
 }

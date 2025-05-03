@@ -10,6 +10,7 @@ import Home from './pages/Home'
 import Signup from './pages/Signup'
 import HeaderComp from "./components/header/Header";
 import Login from "./pages/Login";
+import Mypage from "./pages/Mypage";
 
 function App() {
   return (
@@ -20,8 +21,9 @@ function App() {
           <Route path='/' element={<Home/>}/>
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<Signup />} />
+          <Route path='/mypage' element={<Mypage />} />
         </Routes>
-n
+
       </BrowserRouter>
 
   );

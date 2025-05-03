@@ -1,4 +1,4 @@
-import { User,ShoppingCart } from 'lucide-react';
+import { User,ShoppingCart,Heart } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -13,7 +13,7 @@ export default function Logo(){
   return(
       <>
         <h1 className="w-100 row-flex align-end between mb-2">
-          <a href="/" className="montserrat-extra-bold fs-30 ">
+          <a href="/" className="montserrat-extra-bold fs-30  txt-center">
        Yummy
             <br/>
     Market
@@ -25,6 +25,14 @@ export default function Logo(){
               </div>
               {/*<a href="" className="gmarket-medium fs-18 ">로그인</a>*/}
             </div>
+            <div className="row-flex-center gap-3">
+              <div className="cart_icon pointer">
+                <Heart />
+              </div>
+              {/*<a href="" className="gmarket-medium fs-18 ">찜한상품</a>*/}
+
+            </div>
+
             <div className="row-flex-center gap-3">
               <div className="cart_icon pointer">
               <ShoppingCart />

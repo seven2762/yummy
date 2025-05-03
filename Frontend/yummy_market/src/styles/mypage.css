@@ -1,0 +1,53 @@
+  .my_profile_btn
+  {
+    display: inline-block;
+    padding: 10px 18px ;
+    border: 1px solid #d7d7d7;
+    border-radius: 6px;
+    background-color: #fff;
+    text-align: center;
+    box-sizing: border-box;
+    transition : all 0.3s ease;
+  }
+  .my_profile_btn:hover{
+    border: 1px solid #ffd14b;
+    background:  #ffd14b;
+  }
+
+  .my_profile_btn.on{
+    border: 1px solid #ffd14b;
+    background:  #ffd14b;
+  }
+
+  .my-side-nav_1{
+    padding: 10px ;
+  }
+
+  .my-side-nav_1 a {
+    position: relative;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    z-index: 2;
+    display: inline; /* 인라인 요소로 변경 */
+    width: auto; /* 너비를 자동으로 설정 */
+  }
+
+  .my-side-nav_1 a:hover{
+    font-weight: bold;
+  }
+
+  .my-side-nav_1 a::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 15px;
+    bottom: 5px;
+    left: 0;
+    background-color: rgba(253, 217, 112, 0.67);
+    transition: width 0.5s ease;
+    z-index: -1; /* 가상 요소를 글자 뒤로 보냄 */
+  }
+
+  .my-side-nav_1 a:hover::before {
+    width: 100%;
+  }

@@ -1,6 +1,7 @@
-import React, {useState, FormEvent, ChangeEvent} from 'react';
+import React, {useState, FormEvent, ChangeEvent, useEffect} from 'react';
 import {Eye, EyeOff, LogIn, User, Lock} from 'lucide-react';
 import '../styles/login.css'
+import axios from "axios";
 
 const LoginPage = () => {
   const [email, setEmail] = useState<string>('');
@@ -16,6 +17,8 @@ const LoginPage = () => {
   const [errorMessage, setErrorMessage] = useState<string>('')
   const [pwTouched, setPwTouched] = useState<boolean>(false);
 
+
+
 // 이메일 검증
   const handleEmail = (e: ChangeEvent<HTMLInputElement>) => {
     const inputEmail: string = e.target.value;
@@ -26,15 +29,17 @@ const LoginPage = () => {
 
     setEmailValid(isValid);
   };
+
   // 비밀번호 검증
   const handlePassWord = (e : ChangeEvent<HTMLInputElement>) => {
     const inputPassWord: string =e.target.value;
     setPassword(inputPassWord);
     setPwTouched(true);
     setErrorMessage('');
-    const regex = /^(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[$`~!@$!%*#^?&\\(\\)\-_=+]).{8,20}$/;
+    const regex = /^(?=.*[!@#$%^&*(),.?":{}|<>])(?=.*[0-9])(?=.*[a-zA-Z]).{8,}$/;
     setPwValid(regex.test(inputPassWord));
   }
+
 
   const handleSubmit =
       async (e: FormEvent<HTMLFormElement>) => {
@@ -46,17 +51,52 @@ const LoginPage = () => {
           return;
         }
 
-        setIsLoading(true);
+        const userData = {
+          email,
+          password
+        };
 
-        // 실제 로그인 로직을 여기에 구현합니다
-        // API 호출이나 인증 로직 등을 추가할 수 있습니다
         try {
-          // API 호출을 시뮬레이션합니다
-          await new Promise(resolve => setTimeout(resolve, 1500));
-          console.log('로그인 시도:', {email});
+          // 로딩 상태 활성화
+          setIsLoading(true);
+          setError('');
 
-          // 성공 메시지 (실제 구현에서는 리다이렉트 등의 로직으로 대체)
-          alert('로그인 성공!');
+          console.log('로그인 데이터:', userData);
+
+          // 슬래시로 시작하는 엔드포인트 사용 (프록시 설정과 함께 작동)
+          const response = await axios.post('/api/v1/auth/login', userData, {
+            headers: {
+              'Content-Type': 'application/json'
+            }
+          });
+
+          const token = response.headers['authorization'] || response.headers['Authorization'];
+
+          if (token) {
+            // 토큰이 "Bearer [토큰값]" 형식으로 오는 경우 처리
+            const jwtToken = token.startsWith('Bearer ') ? token.slice(7) : token;
+
+            // 토큰 저장 방법 1: 쿠키에 저장 (js-cookie 라이브러리 사용)
+            // import Cookies from 'js-cookie';
+            // Cookies.set('auth_token', jwtToken, { expires: 7 });
+
+            // 토큰 저장 방법 2: 세션스토리지에 저장
+            sessionStorage.setItem('auth_token', jwtToken);
+
+            // 토큰 저장 방법 3: HTTP-only 쿠키로 안전하게 저장 (서버 측에 요청)
+            // 이 방법이 가장 안전하지만 서버에서 추가 엔드포인트 구현 필요
+            // await axios.post('/api/auth/set-cookie', { token: jwtToken });
+
+            // 리덕스에 로그인 상태 저장 (redux 사용 시)
+            // dispatch(loginSuccess());
+
+            alert('환영합니다!');
+            window.location.href = '/'; // 메인 페이지로 리다이렉트
+          } else {
+            // 토큰이 없는 경우 처리
+            throw new Error('인증 토큰을 받지 못했습니다.');
+          }
+
         } catch (err) {
           setError('로그인에 실패했습니다. 다시 시도해주세요.');
           console.error('로그인 오류:', err);
@@ -216,3 +256,7 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
+
+function dispatch(arg0: any) {
+    throw new Error('Function not implemented.');
+}

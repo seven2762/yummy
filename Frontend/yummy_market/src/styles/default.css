@@ -40,7 +40,7 @@ input[type='button'], a {
 }
 
 .center {
-  width: 75%;
+  width: 78.5%;
   margin: 0 auto;
 }
 
@@ -103,7 +103,7 @@ button {
 /*!* mobile *!*/
 @media screen and (max-width: 767px) {
   .center {
-    width: 95%;
+    width: 90%;
   }
 
 }
@@ -111,7 +111,7 @@ button {
 /*!* tablet *!*/
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   .center {
-    width: 95%;
+    width: 90%;
   }
 
   /*  input[type='text'],*/
@@ -129,9 +129,9 @@ button {
   /*  }*/
 }
 
-/*!* pc *!*/
-/*@media screen and (min-width: 1025px) and (max-width: 1400px) {*/
-/*  .center {*/
-/*    width: 1000px;*/
-/*  }*/
-/*}*/
+/* pc */
+@media screen and (min-width: 1025px) and (max-width: 1400px) {
+  .center {
+    width: 90%;
+  }
+}

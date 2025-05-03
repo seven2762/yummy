@@ -18,21 +18,21 @@ header h1{
   font-weight: bold;
 }
 
-.hd_nav a::before {
-  content: '';
-  position: absolute;
-  width: 0;
-  height: 15px;
-  bottom: 5px;
-  left: 0;
-  background-color: rgba(253, 217, 112, 0.67);
-  transition: width 0.5s ease;
-  z-index: -1; /* 가상 요소를 글자 뒤로 보냄 */
-}
+/*.hd_nav a::before {*/
+/*  content: '';*/
+/*  position: absolute;*/
+/*  width: 0;*/
+/*  height: 15px;*/
+/*  bottom: 5px;*/
+/*  left: 0;*/
+/*  background-color: rgba(253, 217, 112, 0.67);*/
+/*  transition: width 0.5s ease;*/
+/*  z-index: -1; !* 가상 요소를 글자 뒤로 보냄 *!*/
+/*}*/
 
-.hd_nav a:hover::before {
-  width: 100%;
-}
+/*.hd_nav a:hover::before {*/
+/*  width: 100%;*/
+/*}*/
 
 .logo_first {
   /*color: #ffd14b;*/

@@ -1,22 +1,26 @@
 import React, {useState, FormEvent, ChangeEvent, useEffect} from 'react';
-import {Eye, EyeOff, LogIn, User, Lock, Check, AlertTriangle, Phone, MapPinCheckInside} from 'lucide-react';
+import {Eye, EyeOff, LogIn, User, Lock, Check, AlertTriangle, Phone,
+  Mail, MapPinCheckInside} from 'lucide-react';
 import '../styles/login.css'
 import axios from 'axios';
 import { DaumPostcodeData } from '../types/daum';
 
 const SignupPage = () => {
   const [name, setName] = useState<string>('');
-  const [tel, setTel] = useState<string>('');
+  const [phone, setPhone] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [confirmPassword, setConfirmPassword] = useState<string>('');
   const [passwordMatch, setPasswordMatch] = useState<boolean>(false);
-  const [zip, setZip] = useState<string>('');
+  const [zipCode, setZipCode] = useState<string>('');
   const [street, setStreet] = useState<string>('');
   const [etc, setEtc] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>('');
+  // 비밀번호 유효성 상태 추가
+  const [isPasswordValid, setIsPasswordValid] = useState<boolean>(false);
+  const [passwordError, setPasswordError] = useState<string>('');
 
   useEffect(() => {
     const script = document.createElement('script');
@@ -25,30 +29,55 @@ const SignupPage = () => {
     document.head.appendChild(script);
   }, []);
 
+  // 비밀번호 정규식 검증 함수
+  const validatePassword = (password: string): boolean => {
+    // 최소 8자 이상, 특수문자 포함 정규식
+    const passwordRegex = /^(?=.*[!@#$%^&*(),.?":{}|<>])(?=.*[0-9])(?=.*[a-zA-Z]).{8,}$/;
+    return passwordRegex.test(password);
+  };
 
-// 비밀번호 핸들링
+  // 비밀번호 핸들링
   const handlePassword = (e: ChangeEvent<HTMLInputElement>) => {
     const inputPassWord: string = e.target.value;
     setPassword(inputPassWord);
+
+    // 비밀번호 유효성 검사
+    const isValid = validatePassword(inputPassWord);
+    setIsPasswordValid(isValid);
+
+    if (!isValid && inputPassWord.length > 0) {
+      setPasswordError('비밀번호는 최소 8자 이상이며, 영문, 숫자, 특수문자를 포함해야 합니다.');
+    } else {
+      setPasswordError('');
+    }
+
+    // 비밀번호 확인과 일치하는지 검사
+    if (confirmPassword) {
+      setPasswordMatch(inputPassWord === confirmPassword);
+    }
   }
 
-// 비밀번호 확인 핸들링
+  // 비밀번호 확인 핸들링
   const handleConfirmPasswordChange = (e: ChangeEvent<HTMLInputElement>) => {
     const confirmValue = e.target.value;
     setConfirmPassword(confirmValue);
     setPasswordMatch(password === confirmValue);
   }
 
-
-// 회원가입핸들링
+  // 회원가입핸들링
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if(!isPasswordValid){
+      setError('올바른 형식의 비밀번호를 입력해주세요.');
+      return;
+    }
 
     if(!passwordMatch){
       setError('비밀번호가 일치하지 않습니다.');
       return;
     }
-    if(!name || !email || !password || !tel){
+    if(!name || !email || !password || !phone){
       setError('모든 필수 항목을 입력해주세요.');
       return;
     }
@@ -57,9 +86,9 @@ const SignupPage = () => {
       name,
       email,
       password,
-      tel,
+      phone,
       address:{
-        zip, street, etc
+        zipCode, street, etc
       }
     };
 
@@ -109,7 +138,7 @@ const SignupPage = () => {
             addr = data.jibunAddress;
           }
 
-          setZip(data.zonecode);
+          setZipCode(data.zonecode);
           setStreet(addr);
 
           // null 체크 추가
@@ -159,7 +188,7 @@ const SignupPage = () => {
                 </label>
                 <div className="relative input_wrap row-flex-center between relative mt-1">
                   <div className="absolute flex m-align-center pl-3">
-                    <User className=""/>
+                    <Mail className=""/>
                   </div>
                   <input
                       id="email"
@@ -193,7 +222,7 @@ const SignupPage = () => {
                       required
                       value={password}
                       onChange={handlePassword}
-                      className="block pl-15 pr-3 su-regular fs-18"
+                      className={`block pl-15 pr-3 su-regular fs-18 ${password && !isPasswordValid ? 'border-red-500' : ''}`}
                       placeholder="••••••••"
                   />
                   <button
@@ -208,6 +237,11 @@ const SignupPage = () => {
                     )}
                   </button>
                 </div>
+                {passwordError && (
+                    <div className="error-message mt-1 fc-red su-regular fs-12">
+                      {passwordError}
+                    </div>
+                )}
 
                 <div className="relative input_wrap row-flex-center between mt-1">
                   <div className="absolute flex m-align-center pl-3">
@@ -221,7 +255,7 @@ const SignupPage = () => {
                       required
                       value={confirmPassword}
                       onChange={handleConfirmPasswordChange}
-                      className="block pl-15 pr-3 su-regular fs-18"
+                      className={`block pl-15 pr-3 su-regular fs-18 ${confirmPassword && !passwordMatch ? 'border-red-500' : ''}`}
                       placeholder="비밀번호 확인"
                   />
                   <button
@@ -247,14 +281,14 @@ const SignupPage = () => {
                     <Phone className=""/>
                   </div>
                   <input
-                      id="tel"
-                      name="tel"
+                      id="phone"
+                      name="phone"
                       type="tel"
-                      autoComplete="tel"
+                      autoComplete="phone"
                       required
-                      value={tel}
+                      value={phone}
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                          setTel(e.target.value)}
+                          setPhone(e.target.value)}
                       onInput={(e: React.FormEvent<HTMLInputElement>) => {
                         const value = e.currentTarget.value;
                         e.currentTarget.value = value.replace(/[^0-9]/g, '');
@@ -272,7 +306,7 @@ const SignupPage = () => {
                     <input
                         id="sample6_postcode"
                         type="text"
-                        value={zip}
+                        value={zipCode}
                         readOnly
                         placeholder="우편번호"
                         className="block pr-3 su-regular fs-18"
@@ -336,6 +370,6 @@ const SignupPage = () => {
         </div>
       </div>
   );
-}; 
+};
 
 export default SignupPage;

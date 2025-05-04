@@ -37,8 +37,9 @@ spring:
     show-sql: true
   data:
     redis:
-      host: redis://localhost:6379
+      host: redis
       password: ${REDIS_PASSWORD}
+      port: 6379
 jwt:
   secret: ${JWT_TOKEN}
   access-expired-time: 3600

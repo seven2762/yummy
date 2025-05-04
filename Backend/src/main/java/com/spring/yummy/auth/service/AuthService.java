@@ -21,6 +21,7 @@ public class AuthService {
 
     private final TokenProvider tokenProvider;
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
+    private final TokenService tokenService;
 
     /**
      * 로그인 처리 및 토큰 발급
@@ -44,8 +45,8 @@ public class AuthService {
             return tokenProvider.createTokenDto(authentication);
 
         } catch (Exception e) {
-            log.error("로그인 실패: {}", e.getMessage());
-            throw new AuthException("이메일 또는 비밀번호가 올바르지 않습니다.");
+            log.error("로그인 실패: {}", e.getMessage(), e); // 전체 스택 트레이스 출력을 위해 예외 객체 e를 추가
+            throw new AuthException("이메일 또는 비밀번호가 올바르지 않습니다: " + e.getMessage()); // 원인 메시지 포함
         }
     }
 
@@ -69,7 +70,7 @@ public class AuthService {
             String username = authentication.getName();
 
             // 토큰 무효화 처리
-            tokenProvider.logout(accessToken, username);
+            tokenService.logout(accessToken, username);
 
             // SecurityContext 정리
             SecurityContextHolder.clearContext();

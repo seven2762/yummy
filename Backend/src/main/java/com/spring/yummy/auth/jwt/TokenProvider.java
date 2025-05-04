@@ -16,6 +16,7 @@ import io.jsonwebtoken.security.Keys;
 import java.security.Key;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
@@ -133,6 +134,21 @@ public class TokenProvider implements InitializingBean {
         return new UsernamePasswordAuthenticationToken(principal, token, authorities);
     }
 
+    public Authentication getAuthenticationFromRefreshToken(String refreshToken) {
+        // 블랙리스트 확인
+        if (blacklistedTokenRepository.existsById(refreshToken)) {
+            throw new RuntimeException("로그아웃된 토큰입니다.");
+        }
+
+        Claims claims = parseClaims(refreshToken);
+
+        // 리프레시 토큰에는 권한 정보가 없으므로 기본 권한 부여
+        Collection<GrantedAuthority> authorities =
+            Collections.singletonList(new SimpleGrantedAuthority("ROLE_USER"));
+
+        User principal = new User(claims.getSubject(), "", authorities);
+        return new UsernamePasswordAuthenticationToken(principal, refreshToken, authorities);
+    }
     // Refresh Token에서 사용자 이름 추출
     public String getUsernameFromRefreshToken(String token) {
         Claims claims = Jwts
@@ -182,21 +198,7 @@ public class TokenProvider implements InitializingBean {
         }
     }
 
-    // 로그아웃 처리
-    public void logout(String accessToken, String username) {
-        // Access Token 블랙리스트에 추가
-        long expiration = getExpirationTime(accessToken);
-        if (expiration > 0) {
-            BlacklistedToken blacklistedToken = BlacklistedToken.of(
-                accessToken,
-                expiration / 1000  // 밀리초를 초로 변환
-            );
-            blacklistedTokenRepository.save(blacklistedToken);
-        }
 
-        // Redis에서 Refresh Token 삭제
-        refreshTokenRepository.deleteById(username);
-    }
     // 토큰의 남은 유효시간 계산 (밀리초)
     public long getExpirationTime(String token) {
         try {

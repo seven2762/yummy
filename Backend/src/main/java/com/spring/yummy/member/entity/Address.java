@@ -60,13 +60,13 @@ public class Address extends BaseEntity {
             .description(description)
             .build();
 
-        address.initAuditInfo(user.getId());
+        address.initAuditInfo(user.getUsername());
         return address;
     }
 
-    public void updateDefaultAddress(Long id, boolean defaultAddress) {
+    public void updateDefaultAddress(String userName, boolean defaultAddress) {
         if (this.isDefault != defaultAddress) {
-            this.updateAuditInfo(id);
+            this.updateAuditInfo(userName);
 
             if (defaultAddress) {
                 log.info("주소 {}가 기본 주소로 설정되었습니다.", this.id);

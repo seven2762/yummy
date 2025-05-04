@@ -18,6 +18,8 @@ public class RedisConfig {
     @Value("${spring.data.redis.host}")
     private String redisHost;
 
+    @Value("${spring.data.redis.port")
+    private String redisPort;
 
     @Value("${spring.data.redis.password}")
     private String redisPassword;
@@ -31,7 +33,7 @@ public class RedisConfig {
 
         if (redisPassword != null && !redisPassword.isEmpty()) {
             config.useSingleServer()
-                .setAddress(address)
+                .setAddress("redis://" + redisHost + ":" + redisPort)
                 .setUsername("default")
                 .setPassword(redisPassword)
                 .setConnectionMinimumIdleSize(5)

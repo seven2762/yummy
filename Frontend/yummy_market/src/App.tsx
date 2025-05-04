@@ -11,6 +11,8 @@ import Signup from './pages/Signup'
 import HeaderComp from "./components/header/Header";
 import Login from "./pages/Login";
 import Mypage from "./pages/Mypage";
+import TestTokenRefresh from "./pages/TestTokenRefresh";
+
 
 function App() {
   return (
@@ -22,6 +24,9 @@ function App() {
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<Signup />} />
           <Route path='/mypage' element={<Mypage />} />
+
+
+          <Route path='/test' element={<TestTokenRefresh />} />
         </Routes>
 
       </BrowserRouter>

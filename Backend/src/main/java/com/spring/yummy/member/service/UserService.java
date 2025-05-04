@@ -23,15 +23,14 @@ public class UserService {
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
     private final AddressRepository addressRepository;
 
-
     @Transactional
     public void createUser(UserCreateRequestDTO requestDTO) {
         // 사용자 생성
-
         log.info("==== 회원가입 요청 받음 ====");
         log.info("RequestDTO: {}", requestDTO);
         log.info("Username: {}, Email: {}, Phone: {}",
             requestDTO.name(), requestDTO.email(), requestDTO.phone());
+
         User user = User.create(
             requestDTO.name(),
             bCryptPasswordEncoder.encode(requestDTO.password()),
@@ -39,8 +38,10 @@ public class UserService {
             requestDTO.phone()
         );
 
-
-        user.addAddress(createAddress(user, requestDTO.address()));
+        // 주소가 null이 아닌 경우에만 주소 추가
+        if (requestDTO.address() != null) {
+            user.addAddress(createAddress(user, requestDTO.address()));
+        }
 
         userRepository.save(user);
     }
@@ -86,6 +87,6 @@ public class UserService {
     private void updateDefaultAddressStatus(User user) {
         user.getAddress().stream()
             .filter(Address::isDefault)
-            .forEach(addr -> addr.updateDefaultAddress(user.getId(), false));
+            .forEach(addr -> addr.updateDefaultAddress(user.getUsername(), false));
     }
 }

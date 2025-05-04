@@ -6,7 +6,7 @@ services:
     ports:
       - "5432:5432"
     env_file:
-      - ./.env
+      - ./.env.postgres
     volumes:
       - postgres-data:/var/lib/postgresql/data
     networks:
@@ -29,11 +29,12 @@ services:
   # Spring Boot 백엔드
   backend:
     image: hyeonmin2/yummy-market:latest
+    platform: linux/amd64
     container_name: spring-backend
     ports:
       - "8080:8080"
     env_file:
-      - ./.env
+      - ./.env.backend
     depends_on:
       - postgres
       - redis

@@ -3,7 +3,6 @@ package com.spring.yummy.member.entity;
 import com.spring.yummy.global.entity.BaseEntity;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
-import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -37,7 +36,7 @@ public class User  extends BaseEntity {
     private String password;
     @Column(nullable = false)
     private String email;
-    @Column(nullable = false)
+    @Column()
     private String phone;
     @Builder.Default
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -56,7 +55,7 @@ public class User  extends BaseEntity {
             .role(Role.USER)
             .build();
 
-        user.initAuditInfo(user.id);
+        user.initAuditInfo(username);
         return user;
     }
     public void addAddress(Address address) {
@@ -65,4 +64,5 @@ public class User  extends BaseEntity {
     public void removeAddress(Address address) {
         this.address.remove(address);
     }
+
 }

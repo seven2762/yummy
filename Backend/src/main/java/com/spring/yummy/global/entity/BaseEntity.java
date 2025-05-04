@@ -21,33 +21,30 @@ public class BaseEntity {
 
     @CreatedDate
     @Column(updatable = false, nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime createdAt;
 
     @LastModifiedDate
     @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime updatedAt;
 
     @Column
-    @Temporal(TemporalType.TIMESTAMP)
     private LocalDateTime deletedAt;
 
     @Column
-    private Long createdBy;
+    private String createdBy;
 
     @Column
-    private Long updatedBy;
+    private String updatedBy;
 
     @Column
-    private Long deletedBy;
+    private String deletedBy;
 
-    protected void updateAuditInfo(Long userId) {
-        this.updatedBy = userId;
+    protected void updateAuditInfo(String userName) {
+        this.updatedBy = userName;
     }
 
-    protected void initAuditInfo(Long userId) {
-        this.createdBy = userId;
-        this.updatedBy = userId;
+    protected void initAuditInfo(String userName) {
+        this.createdBy = userName;
+        this.updatedBy = userName;
     }
 }

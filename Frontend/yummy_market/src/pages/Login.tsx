@@ -70,25 +70,19 @@ const LoginPage = () => {
             }
           });
 
-          const token = response.headers['authorization'] || response.headers['Authorization'];
+// 헤더가 아닌 응답 본문(body)에서 토큰 가져오기
+          const accessToken = response.data.accessToken;
+          const refreshToken = response.data.refreshToken;
 
-          if (token) {
+          if (accessToken) {
             // 토큰이 "Bearer [토큰값]" 형식으로 오는 경우 처리
-            const jwtToken = token.startsWith('Bearer ') ? token.slice(7) : token;
+            const jwtToken = accessToken.startsWith('Bearer ') ? accessToken.slice(7) : accessToken;
 
-            // 토큰 저장 방법 1: 쿠키에 저장 (js-cookie 라이브러리 사용)
-            // import Cookies from 'js-cookie';
-            // Cookies.set('auth_token', jwtToken, { expires: 7 });
-
-            // 토큰 저장 방법 2: 세션스토리지에 저장
+            // 세션스토리지에 토큰 저장
             sessionStorage.setItem('auth_token', jwtToken);
 
-            // 토큰 저장 방법 3: HTTP-only 쿠키로 안전하게 저장 (서버 측에 요청)
-            // 이 방법이 가장 안전하지만 서버에서 추가 엔드포인트 구현 필요
-            // await axios.post('/api/auth/set-cookie', { token: jwtToken });
-
-            // 리덕스에 로그인 상태 저장 (redux 사용 시)
-            // dispatch(loginSuccess());
+            // 필요하다면 리프레시 토큰도 저장
+            sessionStorage.setItem('refresh_token', refreshToken);
 
             alert('환영합니다!');
             window.location.href = '/'; // 메인 페이지로 리다이렉트

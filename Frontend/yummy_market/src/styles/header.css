@@ -1,12 +1,15 @@
 header{
-  padding: 20px 0;
+
   /*background: #ffd446;*/
-  border-bottom: 2px solid #ffd14b
+
 }
 header h1{
   line-height: 1;
 }
-
+.hd{
+  padding: 20px 0;
+  background: #ffd14b
+}
 .hd_nav a {
   position: relative;
   text-decoration: none;

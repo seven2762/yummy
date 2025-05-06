@@ -6,11 +6,16 @@ export default function Header(){
 
   return(
       <>
-      <header className="hd ">
-        <div className="center  ">
-          <Logo />
-          <Nav />
-        </div>
+      <header className=" ">
+
+          <div className="hd ">
+            <div className="center">
+            <Logo />
+              <Nav />
+            </div>
+          </div>
+
+
       </header>
       </>
   )

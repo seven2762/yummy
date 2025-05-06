@@ -10,8 +10,12 @@ import Home from './pages/Home'
 import Signup from './pages/Signup'
 import HeaderComp from "./components/header/Header";
 import Login from "./pages/Login";
+import FindPw from "./pages/FindPw";
 import Mypage from "./pages/Mypage";
+
+
 import TestTokenRefresh from "./pages/TestTokenRefresh";
+
 
 
 function App() {
@@ -23,6 +27,9 @@ function App() {
           <Route path='/' element={<Home/>}/>
           <Route path='/login' element={<Login />} />
           <Route path='/signup' element={<Signup />} />
+          <Route path='/findpw' element={<FindPw />} />
+
+
           <Route path='/mypage' element={<Mypage />} />
 
 

@@ -13,7 +13,7 @@ export interface RefreshRequest {
   refreshToken: string;
 }
 
-// 추가할 타입 정의
+
 export interface InputFieldProps {
   id: string;
   name: string;
